@@ -1,6 +1,6 @@
 # IntelliNote
 
-[heroku]: http://note-feed.herokuapp.com
+[heroku]: http://IntelliNote.herokuapp.com
 [wireframes]: ./docs/wireframes.md
 [schema]: ./docs/schema.md
 [phase-one]: ./docs/phases/phase1.md
@@ -14,9 +14,9 @@
 
 ##Minimum Viable Product
 
-NoteFeed is an Evernote inspired app built using Ruby on Rails & React.js.
+IntelliNote is an Evernote inspired app built using Ruby on Rails & React.js.
 
-NoteFeed will allow users to:
+IntelliNote will allow users to:
 
 * Create an account
 * Log into an account
