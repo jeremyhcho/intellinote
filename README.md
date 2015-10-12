@@ -71,3 +71,14 @@ In this phase, I'll add functionality to add reminders which will prompt the use
 I'll be creating a Message model and the respective controller to allow users to send and receive messages. I'll be creating a MessageStore that keeps track of a current user's messages using the username as a key, and an array of messages as values. Using a MessageUsersIndex, I'll create a component that lists MessageUsersIndexItem. Clicking on the MessageUsersIndexItem will show a MessagesIndex component that'll render MessagesIndexItem component for individual messages.
 
 [Details][phase-six]
+
+###Bonus
+
+#####Reveal.js
+
+* Using Reveal.js, I'll be implementing the ability to create slideshows.
+  - Add functionality to allow notes to be easily used for slideshows.
+
+####Chart.js
+
+* Using Chart.js, I'll be adding functionality to add charts and graphs to notes.
