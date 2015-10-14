@@ -1,0 +1,49 @@
+var Route = ReactRouter.Route;
+var Router = ReactRouter.Router;
+var IndexRoute = ReactRouter.IndexRoute;
+var Link = ReactRouter.Link;
+
+$(function () {
+  var App = React.createClass({
+    getInitialState: function() {
+      return {
+        user: LoginStore.returnUser()
+      };
+    },
+
+    componentDidMount: function() {
+      LoginStore.addChangeHandler(this._onChange);
+      ApiUtil.fetchCurrentUser();
+    },
+
+    _onChange: function () {
+      this.setState({user: LoginStore.returnUser()})
+    },
+
+    render: function () {
+      var component;
+
+      if (typeof this.state.user !== "undefined") {
+        component = <Main user={this.state.user}/>
+      } else {
+        component = <Home />
+      }
+
+      return (
+        <div>
+          { component }
+          { this.props.children }
+        </div>
+      );
+    }
+  });
+
+  var routes = (
+    <Route path="/" component={App}>
+      <Route path="/" component={{main: Main, home: Home}}>
+      </Route>
+    </Route>
+  )
+
+  React.render(<Router>{routes}</Router>, document.getElementById("main"))
+});

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row lg-margin-top">
+    <div class="col-xs-6 col-xs-offset-3 text-align">
+      <img src="/assets/logo.png" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <h1>Create Account</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="relative col-xs-10 col-xs-offset-1">
+      <div class="col-xs-6 col-xs-offset-3">
+        <form class="sign-up-form" action="/users" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+          <div class="form-group">
+            <label class="label-text">Username</label>
+            <input type="text" class="form-control" name="user[username]">
+          </div>
+
+          <div class="form-group">
+            <label class="label-text">Password</label>
+            <input type="password" class="form-control" name="user[password]">
+          </div>
+
+          <label class="label-text">By clicking Create Account, I agree to <span class="blue-text">enjoy</span> and <span class="blue-text">love</span> IntelliNote.</label>
+          <input type="submit" value="Create Account" class="btn btn-sign-up">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -33,4 +33,5 @@
 * better_errors
 * react-rails '~> 1.3.0' (See details when implementing)
 * flux-rails-assets (See details when implementing)
+* bootstrap-sass (See details when implementing)
 **Note**: I understand I don't need a lot of these right now, just a reminder to self to implement them when setting everything up.

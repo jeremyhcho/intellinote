@@ -1,3 +1,11 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "users.scss";
+@import "sessions.scss";
+@import "static_pages.scss";
+@import "note_form.scss";
+@import "note_index.scss";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

@@ -1,0 +1,155 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+li {
+  list-style-type: none;
+}
+
+body {
+  background-color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin-top: 40px;
+}
+
+.upper-button-img {
+  width: 20px;
+  height: 20px;
+}
+
+.col-xs-1 {
+  padding: 12px 0;
+  background-color: #eee;
+  border-right: 1px solid #ccc;
+  height: 100vh;
+  float: left;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  display: block;
+}
+
+.upper-buttons {
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  padding: 8px 5px 5px;
+  margin: 0 auto;
+  background-color: white;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  transition: background 0.2s ease-in-out;
+  display: block;
+}
+
+.new-note {
+  background-image: url("/assets/new_note.png");
+}
+
+.new-note:hover {
+  background-image: url("/assets/white-plus.png")
+}
+
+.search {
+  background-image: url("/assets/search.png");
+}
+
+.search:hover {
+  background-image: url("/assets/white-search.png");
+}
+
+.chat {
+  background-image: url("/assets/chat.png");
+}
+
+.chat:hover {
+  background-image: url("/assets/white-chat.png");
+}
+
+.upper-buttons:nth-child(2) {
+  margin: 12px auto;
+}
+
+.upper-buttons:hover {
+  cursor: pointer;
+  background-color: #2dbe60;
+  border: 1px solid #1fae52;
+}
+
+.lower-ul {
+  margin-top: 90px;
+}
+
+.lower-buttons {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #eee;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  transition: background 0.2s ease-in-out;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.shortcuts {
+  background-image: url("/assets/star.png");
+}
+
+.shortcuts:hover {
+  background-image: url("/assets/white-star.png");
+  background-color: #2dbe60;
+  cursor: pointer;
+}
+
+.notes {
+  background-image: url("/assets/note.png");
+}
+
+.notes:hover {
+  background-image: url("/assets/white-note.png");
+  background-color: #2dbe60;
+  cursor: pointer;
+}
+
+.notebooks {
+  background-image: url("/assets/notebook.png");
+}
+
+.notebooks:hover {
+  background-image: url("/assets/white-notebook.png");
+  background-color: #2dbe60;
+  cursor: pointer;
+}
+
+.tags {
+  background-image: url("/assets/tag.png");
+}
+
+.tags:hover {
+  background-image: url("/assets/white-tag.png");
+  background-color: #2dbe60;
+  cursor: pointer;
+}
+
+.slide-out {
+  width: 330px;
+  height: 100vh;
+  float: left;
+  border-right: 1px solid #ccc;
+}

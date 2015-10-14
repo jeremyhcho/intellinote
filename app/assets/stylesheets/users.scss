@@ -1,0 +1,89 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #eee;
+}
+
+.text-align {
+  text-align: center;
+}
+
+.lg-margin-top {
+  margin-top: 50px;
+}
+
+.sign-up-form {
+  background-color: white;
+  padding: 40px 30px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-top: 15px;
+}
+
+.sign-up-form input {
+  height: 45px;
+  font-family: Roboto Slab;
+  font-weight: 300;
+  border-radius: 2px;
+}
+
+.label-text {
+  font-size: 13px;
+  color: #828282;
+  font-weight: 300;
+  font-family: Roboto Slab;
+  margin-top: 10px;
+}
+
+.checkbox-input {
+  position: relative;
+  vertical-align: middle;
+  bottom: 3px;
+  margin-left: 10px;
+}
+
+.sm-padding-left {
+  padding-left: 10px;
+}
+
+.btn {
+  width: 100%;
+  font-family: Roboto Slab;
+  font-size: 14px;
+  height: 45px;
+}
+
+.btn-custom {
+  background-color: #2dbe60;
+  color: white;
+  border: 1px solid #1fae52;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+.blue-text {
+  color: #337ab7;
+}
+
+.btn-custom:hover {
+  background-color: #1fae52;
+  color: white;
+}
+
+.forgot-password {
+  font-family: Roboto Slab;
+  font-size: 12px;
+  font-weight: 300;
+  margin-top: 10px;
+  display: block;
+}
+
+h1 {
+  font-family: Roboto Slab;
+  font-weight: 100;
+  font-size: 32px;
+  text-align: center;
+  color: #2dbe60;
+}
