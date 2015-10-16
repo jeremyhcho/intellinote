@@ -13,6 +13,7 @@ $(function () {
     },
 
     componentDidMount: function() {
+      console.log('mount');
       LoginStore.addChangeHandler(this._onChange);
       ApiUtil.fetchCurrentUser();
     },
@@ -22,6 +23,7 @@ $(function () {
     },
 
     render: function () {
+      console.log('render');
       var component;
 
       if (typeof this.state.user !== "undefined" && typeof this.state.user.errors === "undefined") {
@@ -45,6 +47,6 @@ $(function () {
       </Route>
     </Route>
   )
-
+  console.log('accessing js files');
   React.render(<Router>{routes}</Router>, document.getElementById("main"))
 });
