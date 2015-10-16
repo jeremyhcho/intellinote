@@ -10,20 +10,20 @@ var NoteIndexItem = React.createClass({
   componentDidMount: function() {
     this.setState({title: this.props.note.title,
                    body: this.props.note.body,
-                   updatedAt: this.props.note.updated_at})
+                   updatedAt: this.props.note.updated_at});
   },
 
   componentWillReceiveProps: function (newProps) {
     this.setState({title: newProps.note.title,
                    body: newProps.note.body,
-                   updatedAt: newProps.note.updated_at})
+                   updatedAt: newProps.note.updated_at});
   },
 
   handleClick: function (e) {
     $('.notes-ul').children().removeClass('clicked');
 
-    e.currentTarget.className += " clicked"
-    this.props.updateNote.call(null, this.props.note)
+    e.currentTarget.className += " clicked";
+    this.props.updateNote.call(null, this.props.note);
   },
 
   deleteNote: function (e) {

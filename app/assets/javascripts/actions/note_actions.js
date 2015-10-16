@@ -17,13 +17,13 @@ var NoteActions = {
     AppDispatcher.dispatch({
       actionType: NoteConstants.UPDATE_NOTE,
       note: note
-    })
+    });
   },
 
   deleteNote: function (note) {
     AppDispatcher.dispatch({
       actionType: NoteConstants.DELETE_NOTE,
       note: note
-    })
+    });
   }
-}
+};

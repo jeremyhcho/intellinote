@@ -10,6 +10,6 @@ var LoginActions = {
     AppDispatcher.dispatch({
       actionType: LoginConstants.REMOVE_CURRENT_USER,
       user: user
-    })
+    });
   }
 };

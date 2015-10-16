@@ -6,15 +6,15 @@ var UpdateNoteForm = React.createClass({
     };
   },
   componentDidMount: function() {
-    this.setState({title: this.props.note.title, body: this.props.note.body})
+    this.setState({title: this.props.note.title, body: this.props.note.body});
   },
 
   componentWillReceiveProps: function (newProps) {
-    this.setState({title: newProps.note.title, body: newProps.note.body})
+    this.setState({title: newProps.note.title, body: newProps.note.body});
   },
 
   handleSubmit: function () {
-    var newNote = $.extend(this.props.note, {title: this.state.title, body: this.state.body})
+    var newNote = $.extend(this.props.note, {title: this.state.title, body: this.state.body});
     ApiUtil.updateNote(newNote);
   },
 
@@ -27,7 +27,6 @@ var UpdateNoteForm = React.createClass({
   },
 
   render: function() {
-    debugger;
     return (
       <div className="update-note-div">
         <NoteToolBelt notebooks={this.props.notebooks} handleSubmit={this.handleSubmit} />

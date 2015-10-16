@@ -23,7 +23,7 @@ var NotebookDetail = React.createClass({
   },
 
   _onFetch: function () {
-    this.setState({notes: NoteStore.notebookNotes(this.props.notebook)})
+    this.setState({notes: NoteStore.notebookNotes(this.props.notebook)});
   },
 
   _onAdd: function () {

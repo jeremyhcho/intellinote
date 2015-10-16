@@ -66,7 +66,7 @@
       var idx = ids.indexOf(noteId);
 
       if (idx !== -1) {
-        return _notes[idx]
+        return _notes[idx];
       }
     },
 

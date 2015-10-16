@@ -31,7 +31,7 @@ var Search = React.createClass({
   },
 
   render: function() {
-    var filteredNotes = []
+    var filteredNotes = [];
 
     if (this.state.search !== "") {
       filteredNotes = this.state.notes.filter(function (note) {

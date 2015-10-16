@@ -68,7 +68,7 @@
 AppDispatcher.register(function (action) {
   switch (action.actionType) {
     case NotebookConstants.RECEIVE_ALL_NOTEBOOKS:
-      NotebookStore.receiveAllNotebooks(action.notebooks)
+      NotebookStore.receiveAllNotebooks(action.notebooks);
       break;
     case NotebookConstants.ADD_NOTEBOOK:
       NotebookStore.addNotebook(action.notebook);

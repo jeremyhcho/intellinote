@@ -10,7 +10,7 @@ var ApiUtil = {
       error: function () {
         return false;
       }
-    })
+    });
   },
 
   logUserOut: function (user) {
@@ -38,7 +38,7 @@ var ApiUtil = {
       success: function (newNote) {
         NoteActions.addNote(newNote);
       }
-    })
+    });
   },
 
   updateNote: function (note) {
@@ -50,7 +50,7 @@ var ApiUtil = {
       success: function () {
         NoteActions.updateNote(note);
       }
-    })
+    });
   },
 
   fetchAllNotes: function () {
@@ -61,7 +61,7 @@ var ApiUtil = {
       success: function (notes) {
         NoteActions.resetNotes(notes);
       }
-    })
+    });
   },
 
   deleteNote: function (note) {
@@ -70,9 +70,9 @@ var ApiUtil = {
       type: "POST",
       data: {_method: "delete", note},
       success: function () {
-        NoteActions.deleteNote(note)
+        NoteActions.deleteNote(note);
       }
-    })
+    });
   },
 
   fetchAllNotebooks: function () {
@@ -83,7 +83,7 @@ var ApiUtil = {
       success: function (notebooks) {
         NotebookActions.receiveAllNotebooks(notebooks);
       }
-    })
+    }),
   },
 
   addNotebook: function (notebook) {
@@ -92,9 +92,9 @@ var ApiUtil = {
       type: "POST",
       data: {notebook: notebook},
       success: function (newNotebook) {
-        NotebookActions.addNotebook(newNotebook)
+        NotebookActions.addNotebook(newNotebook);
       }
-    })
+    });
   },
 
   deleteNotebook: function (notebook) {
@@ -105,7 +105,7 @@ var ApiUtil = {
       success: function (delNotebook) {
         NotebookActions.deleteNotebook(delNotebook);
       }
-    })
+    });
   },
 
   retrieveNotebookDetail: function (notebook) {
@@ -116,7 +116,7 @@ var ApiUtil = {
       success: function (newNotebook) {
         notebook = newNotebook;
       }.bind(this)
-    })
+    });
 
     return notebook;
   },
@@ -132,6 +132,6 @@ var ApiUtil = {
       success: function (note) {
         NoteActions.updateNote(note);
       }
-    })
+    });
   }
 };
