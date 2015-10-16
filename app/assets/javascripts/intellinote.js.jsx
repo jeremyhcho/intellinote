@@ -5,5 +5,5 @@ var Link = ReactRouter.Link;
 var ButtonToolbar = ReactBootstrap.ButtonToolbar;
 
 $(function () {
-  React.render("hello", document.getElementById("main"));
+  React.render(<div>hello</div>, document.getElementById("main"));
 });
