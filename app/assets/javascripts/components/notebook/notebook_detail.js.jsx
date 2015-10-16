@@ -1,8 +1,29 @@
 var NotebookDetail = React.createClass({
+  getInitialState: function() {
+    return {
+      notes: []
+    };
+  },
+
   componentDidMount: function() {
     NoteStore.addAddedHandler(this._onAdd);
     NoteStore.addDeleteHandler(this._onDelete);
+    NoteStore.addFetchHandler(this._onFetch);
     ApiUtil.fetchAllNotes();
+  },
+
+  componentWillUnmount: function () {
+    NoteStore.removeAddedHandler(this._onAdd);
+    NoteStore.removeDeleteHandler(this._onDelete);
+    NoteStore.removeFetchHandler(this._onFetch);
+  },
+
+  componentWillReceiveProps: function (newProps) {
+    this.setState({notes: newProps.notebook.notes});
+  },
+
+  _onFetch: function () {
+    this.setState({notes: NoteStore.notebookNotes(this.props.notebook)})
   },
 
   _onAdd: function () {
@@ -26,11 +47,6 @@ var NotebookDetail = React.createClass({
 
   render: function() {
     var user = LoginStore.returnUser();
-    var notes = [];
-
-    if (typeof this.props.notebook.notes !== "undefined") {
-      notes = this.props.notebook.notes;
-    }
 
     return (
       <div className="notebook-detail">
@@ -41,14 +57,14 @@ var NotebookDetail = React.createClass({
 
         <ul>
           {
-            typeof notes[0] === "undefined" ? (
+            typeof this.state.notes[0] === "undefined" ? (
               <li className="no-notes">
                 <div onClick={this.props.addNote.bind(null, this.props.notebook)}
                      className="add-note"></div>
                 <h1>Start adding notes!</h1>
               </li>
             ) : (
-              notes.map(function (note) {
+              this.state.notes.map(function (note) {
                 return <NoteIndexItem key={note.id}
                                       note={note}
                                       updateNote={this.props.updateNote} />

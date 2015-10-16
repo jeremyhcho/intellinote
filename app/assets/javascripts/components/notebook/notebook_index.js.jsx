@@ -2,17 +2,22 @@ var NotebookIndex = React.createClass({
   getInitialState: function() {
     return {
       notebookSearch: "",
-      notebooks: this.props.notebooks
+      notebooks: NotebookStore.all()
     };
   },
 
   componentDidMount: function() {
     NoteStore.addChangeHandler(this._onChange);
+    NotebookStore.addChangeHandler(this._onChange);
+    ApiUtil.fetchAllNotebooks();
+  },
+
+  componentWillUnmount: function () {
+    NoteStore.removeChangeHandler(this._onChange);
+    NotebookStore.removeChangeHandler(this._onChange);
   },
 
   _onChange: function () {
-    ApiUtil.fetchAllNotebooks();
-
     this.setState({notebooks: NotebookStore.all()});
   },
 
@@ -25,8 +30,8 @@ var NotebookIndex = React.createClass({
   },
 
   render: function () {
-    var notebooks = this.props.notebooks.filter(function (notebook) {
-      return notebook.title.toLowerCase().match(this.state.notebookSearch);
+    var notebooks = this.state.notebooks.filter(function (notebook) {
+      return notebook.title.toLowerCase().match(this.state.notebookSearch.toLowerCase());
     }.bind(this));
 
     return (

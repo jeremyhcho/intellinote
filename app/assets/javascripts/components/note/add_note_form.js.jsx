@@ -41,9 +41,9 @@ var AddNoteForm = React.createClass({
                className="note-title"
                value={this.state.title}></input>
 
-        <ReactQuill theme="snow"
-                    styles={ false }
-                    onChange={this.handleBodyChange}/>
+       <ReactQuill theme="snow"
+                   styles={ false }
+                   onChange={this.handleBodyChange}/>
       </div>
     );
   }

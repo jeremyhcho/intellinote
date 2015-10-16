@@ -1,7 +1,10 @@
 (function(root) {
   'use strict';
 
-  var _notes = [], lastDeletedNote, CHANGE_EVENT = "CHANGE", ADD_EVENT = "ADD", DELETE_EVENT="DELETE";
+  var _notes = [], lastDeletedNote, CHANGE_EVENT = "CHANGE",
+      ADD_EVENT = "ADD", DELETE_EVENT="DELETE", FETCH_EVENT = "FETCH",
+      UPDATE_EVENT = "UPDATE";
+
   root.NoteStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
       return _notes.slice();
@@ -14,6 +17,7 @@
     receiveAllNotes: function (notes) {
       _notes = notes;
       this.notesChanged();
+      this.notesFetched();
     },
 
     notesChanged: function () {
@@ -32,8 +36,16 @@
       this.on(DELETE_EVENT, handler);
     },
 
+    removeDeleteHandler: function (handler) {
+      this.removeListener(DELETE_EVENT, handler);
+    },
+
     addAddedHandler: function (handler){
       this.on(ADD_EVENT, handler);
+    },
+
+    removeAddedHandler: function (handler) {
+      this.removeListener(DELETE_EVENT, handler);
     },
 
     addNote: function (note) {
@@ -64,6 +76,7 @@
 
       _notes[idx] = newNote;
       this.notesChanged();
+      this.notesUpdated();
     },
 
     deleteNote: function (note) {
@@ -89,6 +102,46 @@
           return note.id === notebookId;
         }.bind(this))
       );
+    },
+
+    addFetchHandler: function (handler) {
+      this.on(FETCH_EVENT, handler);
+    },
+
+    removeFetchHandler: function (handler) {
+      this.removeListener(FETCH_EVENT, handler);
+    },
+
+    notesFetched: function () {
+      this.emit(FETCH_EVENT);
+    },
+
+    notebookNotes: function (notebook) {
+      return (
+        _notes.filter(function (note) {
+          return note.notebook_id === notebook.id;
+        }.bind(this))
+      );
+    },
+
+    findShortcuts: function () {
+      return (
+        _notes.filter(function (note) {
+          return note.shortcut;
+        }.bind(this))
+      );
+    },
+
+    addUpdateHandler: function (handler) {
+      this.on(UPDATE_EVENT, handler);
+    },
+
+    removeUpdateHandler: function (handler) {
+      this.removeListener(UPDATE_EVENT, handler);
+    },
+
+    notesUpdated: function () {
+      this.emit(UPDATE_EVENT);
     }
   });
 

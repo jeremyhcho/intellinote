@@ -28,10 +28,6 @@
       }
     },
 
-    updateNotebook: function (notebook) {
-
-    },
-
     find: function (id) {
       var ids = _notebooks.map(function (notebook) {
         return notebook.id;

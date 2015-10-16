@@ -1,0 +1,27 @@
+.shortcuts-index {
+  padding: 20px;
+}
+
+.upper-shortcuts-index {
+  border-bottom: 2px solid #ccc;
+  width: 285px;
+  padding-bottom: 20px;
+}
+
+.upper-shortcuts-index:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.shortcuts-index h1 {
+  font-family: Work Sans;
+  font-weight: 300;
+  font-size: 24px;
+  color: #6B6B6B;
+  letter-spacing: 2px;
+  text-align: left;
+  width: 150px;
+  margin: 0;
+  float: left;
+}

@@ -40,7 +40,7 @@ $(function () {
   });
 
   var routes = (
-    <Route path="/" component={App}>
+    <Route component={App}>
       <Route path="/" component={{main: Main, home: Home}}>
       </Route>
     </Route>

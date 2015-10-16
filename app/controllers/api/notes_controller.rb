@@ -21,9 +21,9 @@ class Api::NotesController < ApplicationController
     @note = Note.find(params[:note][:id])
 
     if @note.update(note_params)
-      render json: @note
+      render :update
     else
-      render json: { errors: "Not updatable" }, status: 500
+      render json: { errors: "Not updatable" }, status: 422
     end
   end
 
@@ -37,6 +37,6 @@ class Api::NotesController < ApplicationController
   private
 
     def note_params
-      params.require(:note).permit(:title, :body, :notebook_id)
+      params.require(:note).permit(:title, :body, :notebook_id, :shortcut)
     end
 end

@@ -51,11 +51,7 @@
   float: right;
 }
 
-.delete {
-  background-image: url("/assets/trash.png");
-  background-size: 75%;
-  background-position: center;
-  background-repeat: no-repeat;
+.note-icon {
   width: 25px;
   height: 25px;
   float: right;
@@ -63,8 +59,22 @@
   transition: opacity 200ms;
 }
 
-.delete:hover {
+.note-icon:hover {
   opacity: 1;
+}
+
+.delete {
+  background-image: url("/assets/trash.png");
+  background-size: 75%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shortcut {
+  background-image: url("/assets/white-shortcut.png");
+  background-size: 75%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .title {

@@ -35,7 +35,7 @@ var Search = React.createClass({
 
     if (this.state.search !== "") {
       filteredNotes = this.state.notes.filter(function (note) {
-        return note.title.toLowerCase().match(this.state.search);
+        return note.title.toLowerCase().match(this.state.search.toLowerCase());
       }.bind(this));
     }
 

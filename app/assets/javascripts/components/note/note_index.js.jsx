@@ -10,6 +10,10 @@ var NoteIndex = React.createClass({
     ApiUtil.fetchAllNotes();
   },
 
+  componentWillUnmount: function () {
+    NoteStore.removeChangeHandler(this._onChange);
+  },
+
   _onChange: function () {
     this.setState({notes: NoteStore.all()});
   },

@@ -11,7 +11,7 @@ var Sidebar = React.createClass({
           </ul>
 
           <ul className="lower-ul">
-            <li className="lower-buttons shortcuts"></li>
+            <li onClick={this.props.showShortcuts} className="lower-buttons shortcuts"></li>
             <li onClick={this.props.showNotes} className="lower-buttons notes"></li>
             <li onClick={this.props.showNotebooks} className="lower-buttons notebooks"></li>
             <li className="lower-buttons tags"></li>

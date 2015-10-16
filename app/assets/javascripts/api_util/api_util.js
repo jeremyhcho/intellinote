@@ -119,5 +119,19 @@ var ApiUtil = {
     })
 
     return notebook;
+  },
+
+  addShortcut: function (note) {
+    note.shortcut = !note.shortcut;
+
+    $.ajax({
+      url: "/api/notes/" + note.id,
+      type: "PATCH",
+      data: {note: note},
+      dataType: "json",
+      success: function (note) {
+        NoteActions.updateNote(note);
+      }
+    })
   }
 };

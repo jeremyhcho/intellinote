@@ -1,7 +1,9 @@
 var NoteToolBelt = React.createClass({
   getInitialState: function() {
     return {
-      notebook: this.props.notebook || this.props.notebooks[0]
+      notebook: this.props.notebook || this.props.notebooks[0],
+      searchText: "",
+      notebooks: this.props.notebooks
     };
   },
 
@@ -10,7 +12,15 @@ var NoteToolBelt = React.createClass({
     this.props.updateNoteNotebook(notebook.id);
   },
 
+  handleChange: function (e) {
+    this.setState({searchText: e.currentTarget.value});
+  },
+
   render: function() {
+    var notebooks = this.props.notebooks.filter(function (notebook) {
+      return notebook.title.toLowerCase().match(this.state.searchText.toLowerCase());
+    }.bind(this));
+
     return (
       <div className="toolbelt">
         <div onClick={this.props.handleSubmit} className="toolbelt-icon check-icon"></div>
@@ -23,11 +33,13 @@ var NoteToolBelt = React.createClass({
             <li className="no-hover">
               <input className="notebook-dropdown-search"
                    type="text"
-                   placeholder="Find a notebook">
+                   placeholder="Find a notebook"
+                   onChange={this.handleChange}
+                   value={this.state.searchText}>
               </input>
             </li>
             {
-              this.props.notebooks.map(function (notebook) {
+              notebooks.map(function (notebook) {
                 return <NotebookDropdownItem handleClick={this.handleClick} notebook={notebook} />;
               }.bind(this))
             }

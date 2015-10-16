@@ -9,11 +9,15 @@ var Main = React.createClass({
 
   componentDidMount: function() {
     NotebookStore.addChangeHandler(this._onChange);
-    ApiUtil.fetchAllNotebooks();
+    this.showNotebooks();
+  },
+
+  componentWillUnmount: function () {
+    NotebookStore.removeChangeHandler(this._onChange);
   },
 
   _onChange: function () {
-    this.setState({notebooks: NotebookStore.all()}, this.showNotebooks);
+    this.setState({notebooks: NotebookStore.all()});
   },
 
   handleLogOut: function () {
@@ -21,8 +25,7 @@ var Main = React.createClass({
   },
 
   addNote: function (notebook) {
-    this.setState({currentPage: <AddNoteForm notebook={notebook} notebooks={this.state.notebooks}/>},
-      this.showNotebooks);
+    this.setState({currentPage: <AddNoteForm notebook={notebook} notebooks={this.state.notebooks}/>});
   },
 
   updateNote: function (note) {
@@ -30,14 +33,14 @@ var Main = React.createClass({
   },
 
   showNotes: function () {
-    this.setState({currentSlideOut: <NoteIndex />})
+    this.setState({currentSlideOut: <NoteIndex updateNote={this.updateNote}/>})
   },
 
   showNotebooks: function () {
     this.setState({currentSlideOut:
                     <NotebookIndex notebooks={this.state.notebooks}
                                    addNotebook={this.addNotebook}
-                                   showNotebookDetail={this.showNotebookDetail}/>})
+                                   showNotebookDetail={this.showNotebookDetail}/>});
   },
 
   showNotebookDetail: function (notebook) {
@@ -55,6 +58,10 @@ var Main = React.createClass({
     this.setState({currentPage: <Search />});
   },
 
+  showShortcuts: function () {
+    this.setState({currentSlideOut: <Shortcuts />});
+  },
+
   render: function() {
     return (
       <div className="containers">
@@ -62,7 +69,8 @@ var Main = React.createClass({
           <Sidebar addNote={this.addNote}
                    showNotebooks={this.showNotebooks}
                    search={this.search}
-                   showNotes={this.showNotes}/>
+                   showNotes={this.showNotes}
+                   showShortcuts={this.showShortcuts}/>
           <SlideOut updateNote={this.updateNote}
                     currentSlideOut={this.state.currentSlideOut} />
           {this.state.currentPage}
