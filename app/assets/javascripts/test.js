@@ -1,1 +1,3 @@
-document.getElementById("main").appendChild(document.createElement("div"));
+$(function () {
+  document.getElementById("main").appendChild(document.createElement("div"));
+});
