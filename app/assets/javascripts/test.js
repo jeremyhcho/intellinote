@@ -1,1 +1,1 @@
-document.getElementById("main").appendChild(document.createElement("li"));
+document.getElementById("main").appendChild(document.createElement("div"));
