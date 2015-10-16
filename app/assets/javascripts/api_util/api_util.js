@@ -73,5 +73,51 @@ var ApiUtil = {
         NoteActions.deleteNote(note)
       }
     })
+  },
+
+  fetchAllNotebooks: function () {
+    $.ajax({
+      url: "/api/notebooks",
+      type: "GET",
+      dataType: "json",
+      success: function (notebooks) {
+        NotebookActions.receiveAllNotebooks(notebooks);
+      }
+    })
+  },
+
+  addNotebook: function (notebook) {
+    $.ajax({
+      url: "/api/notebooks",
+      type: "POST",
+      data: {notebook: notebook},
+      success: function (newNotebook) {
+        NotebookActions.addNotebook(newNotebook)
+      }
+    })
+  },
+
+  deleteNotebook: function (notebook) {
+    $.ajax({
+      url: "/api/notebooks/" + notebook.id,
+      type: "POST",
+      data: {_method: "delete", notebook: notebook},
+      success: function (delNotebook) {
+        NotebookActions.deleteNotebook(delNotebook);
+      }
+    })
+  },
+
+  retrieveNotebookDetail: function (notebook) {
+    $.ajax({
+      url: "/api/notebooks/" + notebook.id,
+      type: "GET",
+      data: {notebook: notebook},
+      success: function (newNotebook) {
+        notebook = newNotebook;
+      }.bind(this)
+    })
+
+    return notebook;
   }
 };

@@ -2,6 +2,7 @@ var Route = ReactRouter.Route;
 var Router = ReactRouter.Router;
 var IndexRoute = ReactRouter.IndexRoute;
 var Link = ReactRouter.Link;
+var ButtonToolbar = ReactBootstrap.ButtonToolbar
 
 $(function () {
   var App = React.createClass({
@@ -23,7 +24,7 @@ $(function () {
     render: function () {
       var component;
 
-      if (typeof this.state.user !== "undefined") {
+      if (typeof this.state.user !== "undefined" && typeof this.state.user.errors === "undefined") {
         component = <Main user={this.state.user}/>
       } else {
         component = <Home />

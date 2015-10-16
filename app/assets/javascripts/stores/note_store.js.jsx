@@ -1,10 +1,14 @@
 (function(root) {
   'use strict';
 
-  var _notes = [], CHANGE_EVENT = "CHANGE";
+  var _notes = [], lastDeletedNote, CHANGE_EVENT = "CHANGE", ADD_EVENT = "ADD", DELETE_EVENT="DELETE";
   root.NoteStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
       return _notes.slice();
+    },
+
+    lastAddedNote: function () {
+      return _notes.slice(-1)[0];
     },
 
     receiveAllNotes: function (notes) {
@@ -24,9 +28,22 @@
       this.removeListener(CHANGE_EVENT, handler);
     },
 
+    addDeleteHandler: function (handler) {
+      this.on(DELETE_EVENT, handler);
+    },
+
+    addAddedHandler: function (handler){
+      this.on(ADD_EVENT, handler);
+    },
+
     addNote: function (note) {
       _notes.push(note);
       this.notesChanged();
+      this.noteAdded();
+    },
+
+    noteAdded: function () {
+      this.emit(ADD_EVENT);
     },
 
     find: function (noteId) {
@@ -53,8 +70,25 @@
       var noteToDelete = this.find(note.id);
       var idx = _notes.indexOf(noteToDelete);
 
-      _notes.splice(idx, 1);
+      lastDeletedNote = _notes.splice(idx, 1)[0];
       this.notesChanged();
+      this.noteDeleted();
+    },
+
+    lastRemovedNote: function () {
+      return lastDeletedNote;
+    },
+
+    noteDeleted: function () {
+      this.emit(DELETE_EVENT);
+    },
+
+    findByNotebook: function (notebookId) {
+      return (
+        _notes.filter(function (note) {
+          return note.id === notebookId;
+        }.bind(this))
+      );
     }
   });
 

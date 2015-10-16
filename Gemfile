@@ -26,7 +26,7 @@ gem 'bcrypt'
 gem 'react-rails', '~> 1.3.0'
 gem 'flux-rails-assets'
 gem 'bootstrap-sass'
-
+gem 'react-bootstrap-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react": "^0.14.0",
+    "react-quill": "^0.2.2"
+  }
+}

@@ -1,11 +1,66 @@
+textarea {
+  resize: none;
+}
+
 .create-note-div {
   float: left;
-  width: 600px;
   height: 100vh;
+  width: calc(100% - 455px);
+  padding-top: 18px;
+}
+
+.create-note-div form {
+  display: block;
+  margin: 0 auto;
+  width: 93%;
 }
 
 .update-note-div {
   float: left;
-  width: 600px;
   height: 100vh;
+  width: calc(100% - 455px);
+  padding-top: 18px;
+}
+
+.update-note-div form {
+  display: block;
+  margin: 0 auto;
+  width: 93%;
+}
+
+.note-title {
+  border: none;
+  height: 50px;
+  font-size: 24px;
+  font-family: Roboto Slab;
+  font-weight: 300;
+  width: 100%;
+  color: #2dbe60;
+  margin: 15px 0 0 30px;
+}
+
+.note-body {
+  border: none;
+  height: calc(100vh - 150px);
+  font-size: 14px;
+  font-family: Roboto Slab;
+  font-weight: 300;
+  width: 100%;
+  color: #202020;
+}
+
+.note-body:focus {
+  outline-width: 0;
+}
+
+.note-title::-webkit-input-placeholder {
+   color: #2dbe60;
+}
+
+.note-body::-webkit-input-placeholder {
+  color: #202020;
+}
+
+.note-title:focus {
+  outline-width: 0;
 }

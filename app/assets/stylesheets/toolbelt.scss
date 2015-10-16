@@ -1,0 +1,186 @@
+.toolbelt {
+  width: 93%;
+  height: 40px;
+  margin: 0 auto;
+  border-bottom: 2px solid #ccc;
+}
+
+.toolbelt-icon {
+  width: 30px;
+  height: 30px;
+  float: left;
+  transition: background 200ms;
+}
+
+.reminder-icon {
+  background: url("/assets/reminder.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.reminder-icon:hover {
+  background: url("/assets/green-reminder.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shortcut-icon {
+  background: url("/assets/shortcut.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shortcut-icon:hover {
+  background: url("/assets/green-shortcut.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.delete-icon {
+  background: url("/assets/delete.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.delete-icon:hover {
+  background: url("/assets/green-delete.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.check-icon {
+  background: url("/assets/check-icon.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.check-icon:hover {
+  background: url("/assets/green-check.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.toolbelt-icon:nth-child(2) {
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.toolbelt-icon:nth-child(3) {
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+.toolbelt-icon:hover {
+  cursor: pointer;
+}
+
+.notebook-dropdown-div {
+  position: relative;
+  width: 150px;
+  height: 30px;
+  float: right;
+}
+
+.notebook-dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: 400px;
+  max-height: 380px;
+  box-shadow: 0 3px 3px #ccc;
+  overflow: hidden;
+}
+
+.notebook-dropdown-div:hover {
+  cursor: pointer;
+}
+
+.notebook-dropdown-div:hover .notebook-dropdown {
+  cursor: pointer;
+  display: block;
+  left: -250px;
+  top: 0;
+}
+
+.notebook-dropdown-div p {
+  line-height: 40px;
+  vertical-align: middle;
+  font-family: Open Sans;
+  font-weight: 400;
+  font-size: 12px;
+  color: #6E6E6E;
+  margin: 0;
+  text-align: center;
+}
+
+.down-arrow {
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid #6E6E6E;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.notebook-dropdown-search {
+  width: 90%;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  font-family: Open Sans;
+  font-weight: 300;
+  letter-spacing: 1px;
+  font-size: 13px;
+  border-radius: 2px;
+  box-shadow: none;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  position: absolute;
+  color: #202020;
+}
+
+.notebook-dropdown-search:focus {
+  outline-width: 0;
+}
+
+.notebook-dropdown-search::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.notebook-dropdown li {
+  font-family: Open Sans;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 40px;
+  vertical-align: middle;
+  height: 60px;
+  width: 100%;
+  padding: 0 12px;
+  border-bottom: 1px solid #ccc;
+  transition: background-color 200ms, color 200ms;
+}
+
+.notebook-dropdown li:first-child {
+  height: 60px;
+  position: relative;
+}
+
+.notebook-dropdown li:only-child {
+  border: none;
+}
+
+.notebook-dropdown li:nth-child(1n + 2):hover {
+  background-color: #2dbe60;
+  color: white;
+}

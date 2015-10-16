@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
     foreign_key: "author_id",
     primary_key: "id"
 
+  has_many :notebooks
+
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end

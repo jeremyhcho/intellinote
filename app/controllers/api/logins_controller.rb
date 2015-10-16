@@ -3,7 +3,7 @@ class Api::LoginsController < ApplicationController
     if current_user
       render :current_user
     else
-      render json: { errors: "No user"}, status: 422
+      render json: { errors: "No current user" }, status: 200
     end
   end
 end
