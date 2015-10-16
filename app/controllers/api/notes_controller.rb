@@ -28,7 +28,7 @@ class Api::NotesController < ApplicationController
   end
 
   def destroy
-    @note = Note.find(params[:note][:id])
+    @note = Note.find(params[:id])
     @note.delete
 
     render json: @note
