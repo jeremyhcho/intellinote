@@ -13,7 +13,6 @@
 //= requre bootstrap
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require eventemitter
 //= require flux
 //= require react
