@@ -1,3 +1,3 @@
 $(function () {
-  React.render(<div>Hello</div>, document.getElementById("main"));
+  $('#main').append("hello");
 });
