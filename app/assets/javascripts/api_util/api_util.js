@@ -83,7 +83,7 @@ var ApiUtil = {
       success: function (notebooks) {
         NotebookActions.receiveAllNotebooks(notebooks);
       }
-    }),
+    });
   },
 
   addNotebook: function (notebook) {

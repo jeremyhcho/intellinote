@@ -63,7 +63,6 @@ var Main = React.createClass({
   },
 
   render: function() {
-    console.log('main');
     return (
       <div className="containers">
         <div className="row">
