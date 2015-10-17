@@ -10,7 +10,6 @@ var NotebookIndexItem = React.createClass({
         {this.props.notebook.title}
         <div className="notebook-list-icons">
           <div onClick={this.deleteNotebook} className="notebook-icon notebook-trash"></div>
-          <div className="notebook-icon notebook-shortcut"></div>
         </div>
       </li>
     );

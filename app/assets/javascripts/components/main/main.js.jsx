@@ -59,7 +59,7 @@ var Main = React.createClass({
   },
 
   showShortcuts: function () {
-    this.setState({currentSlideOut: <Shortcuts />});
+    this.setState({currentSlideOut: <Shortcuts updateNote={this.updateNote}/>});
   },
 
   render: function() {

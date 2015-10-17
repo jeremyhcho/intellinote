@@ -33,7 +33,6 @@ $(function () {
       return (
         <div>
           { component }
-          { this.props.children }
         </div>
       );
     }

@@ -30,19 +30,15 @@ var UpdateNoteForm = React.createClass({
     return (
       <div className="update-note-div">
         <NoteToolBelt notebooks={this.props.notebooks} handleSubmit={this.handleSubmit} />
-        <form>
-          <div className="form-group">
-            <input type="text"
-                   onChange={this.handleTitleChange}
-                   className="note-title"
-                   value={this.state.title}></input>
-          </div>
+        <input type="text"
+               onChange={this.handleTitleChange}
+               className="note-title"
+               value={this.state.title}></input>
 
-          <ReactQuill theme="snow"
-                      styles={false}
-                      onChange={this.handleBodyChange}
-                      defaultValue={this.state.body} />
-        </form>
+        <ReactQuill theme="snow"
+                    styles={false}
+                    onChange={this.handleBodyChange}
+                    defaultValue={this.state.body} />
       </div>
     );
   }

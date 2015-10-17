@@ -26,7 +26,7 @@ var Shortcuts = React.createClass({
         </div>
 
         <div className="shortcuts-list-div">
-          <ShortcutsIndex shortcuts={this.state.shortcuts}/>
+          <ShortcutsIndex updateNote={this.props.updateNote} shortcuts={this.state.shortcuts}/>
         </div>
       </div>
     );

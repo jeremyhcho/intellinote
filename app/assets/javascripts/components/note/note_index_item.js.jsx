@@ -31,7 +31,7 @@ var NoteIndexItem = React.createClass({
     ApiUtil.deleteNote(this.props.note);
   },
 
-  addShortcut: function (e) {
+  toggleShortcut: function (e) {
     e.stopPropagation();
     ApiUtil.addShortcut(this.props.note);
   },
@@ -41,7 +41,7 @@ var NoteIndexItem = React.createClass({
       <li onClick={this.handleClick} className="note-index-item">
         <div className="options">
           <div onClick={this.deleteNote} className="note-icon delete"></div>
-          <div onClick={this.addShortcut} className="note-icon shortcut"></div>
+          <div onClick={this.toggleShortcut} className="note-icon shortcut"></div>
         </div>
         <p className="title">{this.state.title}</p>
         <p className="timestamp">{this.state.updatedAt} ago</p>

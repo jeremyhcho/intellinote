@@ -4,8 +4,8 @@ var ShortcutsIndex = React.createClass({
       <ul>
         {
           this.props.shortcuts.map(function (shortcut) {
-            return <ShortcutIndexItem key={shortcut.id} shortcut={shortcut} />;
-          })
+            return <ShortcutIndexItem updateNote={this.props.updateNote} key={shortcut.id} shortcut={shortcut} />;
+          }.bind(this))
         }
       </ul>
     );

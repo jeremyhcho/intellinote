@@ -1,11 +1,8 @@
-.shortcuts-index {
-  padding: 20px;
-}
-
 .upper-shortcuts-index {
   border-bottom: 2px solid #ccc;
   width: 285px;
   padding-bottom: 20px;
+  margin: 20px 0 0 20px;
 }
 
 .upper-shortcuts-index:after {
@@ -24,4 +21,62 @@
   width: 150px;
   margin: 0;
   float: left;
+}
+
+.shortcuts-item {
+  width: 100%;
+  height: 40px;
+  font-family: Roboto Slab;
+  font-weight: 300;
+  font-size: 14px;
+  transition: background 200ms, color 200ms;
+  padding-left: 20px;
+  line-height: 40px;
+  vertical-align: middle;
+  letter-spacing: 1px;
+  transition: background 200ms;
+}
+
+.shortcuts-item:hover {
+  cursor: pointer;
+  background-color: #2dbe60;
+  color: white;
+}
+
+.shortcuts-item:hover .black-note {
+  background: url("/assets/white-mini-note.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.shortcuts-item:hover .black-close {
+  background: url("/assets/white-close.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.black-note {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  background: url("/assets/black-note.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.black-close {
+  float: right;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  transition: background 200ms;
+  margin: 10px 25px 0 0;
+  opacity: 0.7;
+}
+
+.black-close:hover {
+  opacity: 1;
 }
