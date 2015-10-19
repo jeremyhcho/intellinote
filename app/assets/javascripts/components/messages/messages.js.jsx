@@ -1,7 +1,7 @@
 var Messages = React.createClass({
   getInitialState: function() {
     return {
-      users: MessageStore.all()
+      users: []
     };
   },
 
@@ -11,7 +11,7 @@ var Messages = React.createClass({
   },
 
   _onChange: function () {
-    this.setState({users: MessageStore.all()});
+    this.setState({users: MessageStore.allRecipients()});
   },
 
   componentWillUnmount: function () {
@@ -29,9 +29,11 @@ var Messages = React.createClass({
         <div className="users-list">
           <ul>
             {
-              this.state.users.map(function (user) {
-                return <li>{user.username}</li>;
-              })
+              this.state.users.map(function (user, idx) {
+                return <MessageIndexItem user={user}
+                                         key={idx}
+                                         openConvo={this.props.openConvo}/>;
+              }.bind(this))
             }
           </ul>
         </div>

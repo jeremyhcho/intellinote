@@ -63,7 +63,12 @@ var Main = React.createClass({
   },
 
   showMessages: function () {
-    this.setState({currentSlideOut: <Messages addMessage={this.addMessage}/>});
+    this.setState({currentSlideOut: <Messages addMessage={this.addMessage}
+                                              openConvo={this.openConvo}/>});
+  },
+
+  openConvo: function (user) {
+    this.setState({currentSlideOut: <Conversation user={user}/>});
   },
 
   addMessage: function () {
@@ -78,7 +83,8 @@ var Main = React.createClass({
                    showNotebooks={this.showNotebooks}
                    search={this.search}
                    showNotes={this.showNotes}
-                   showShortcuts={this.showShortcuts} />
+                   showShortcuts={this.showShortcuts}
+                   showMessages={this.showMessages} />
           <SlideOut updateNote={this.updateNote}
                     currentSlideOut={this.state.currentSlideOut} />
           {this.state.currentPage}

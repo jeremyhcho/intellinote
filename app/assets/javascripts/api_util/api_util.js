@@ -136,8 +136,20 @@ var ApiUtil = {
       url: "/api/messages",
       type: "GET",
       dataType: "json",
-      success: function (message) {
+      success: function (messages) {
         MessageActions.resetMessages(messages);
+      }
+    });
+  },
+
+  sendMessage: function (message) {
+    $.ajax({
+      url: "/api/messages",
+      type: "POST",
+      dataType: "json",
+      data: {message: message},
+      success: function (newMessage) {
+        MessageActions.addMessage(newMessage);
       }
     });
   }

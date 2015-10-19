@@ -145,6 +145,7 @@
   border-radius: 3px;
   text-align: center;
   transition: visibility 200ms ease-out 0s;
+  z-index: 10;
 }
 
 .lower-buttons:before {
@@ -163,6 +164,7 @@
   border-radius: 3px;
   text-align: center;
   transition: visibility 200ms ease-out 0s;
+  z-index: 10;
 }
 
 .upper-buttons:hover:before, .upper-buttons:hover:after, .lower-buttons:hover:before, .lower-buttons:hover:after {
@@ -182,6 +184,7 @@
 	border-right: 5px solid #5c5c5c;
   visibility: hidden;
   transition: visibility 200ms ease-out 0s;
+  z-index: 10;
 }
 
 .lower-buttons:after {
@@ -196,4 +199,5 @@
 	border-right: 5px solid #5c5c5c;
   visibility: hidden;
   transition: visibility 200ms ease-out 0s;
+  z-index: 10;
 }

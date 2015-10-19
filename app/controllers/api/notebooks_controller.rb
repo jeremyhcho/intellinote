@@ -23,8 +23,10 @@ class Api::NotebooksController < ApplicationController
 
   def destroy
     @notebook = Notebook.find(params[:notebook][:id])
-    @notebook.delete
 
+    if current_user.notebooks.length > 1
+      @notebook.delete
+    end
 
     render json: @notebook
   end

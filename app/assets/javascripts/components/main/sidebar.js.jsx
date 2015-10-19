@@ -11,7 +11,8 @@ var Sidebar = React.createClass({
             <li onClick={this.props.search}
                 className="upper-buttons search"
                 data-content="Search"></li>
-            <li className="upper-buttons chat"
+            <li onClick={this.props.showMessages} 
+                className="upper-buttons chat"
                 data-content="Chat"></li>
           </ul>
 

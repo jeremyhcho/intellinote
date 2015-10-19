@@ -1,5 +1,5 @@
 class Message < ActiveRecord::Base
-  validates :title, :body, :sender_id, :recipient_id, presence: true
+  validates :body, :sender_id, :recipient_id, presence: true
 
   belongs_to :sender,
     class_name: "User",
