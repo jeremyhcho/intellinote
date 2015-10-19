@@ -6,9 +6,6 @@ var ApiUtil = {
       dataType: "json",
       success: function (user) {
         LoginActions.addCurrentUser(user);
-      },
-      error: function () {
-        return false;
       }
     });
   },
@@ -130,6 +127,17 @@ var ApiUtil = {
       dataType: "json",
       success: function (note) {
         NoteActions.updateNote(note);
+      }
+    });
+  },
+
+  fetchAllMessages: function () {
+    $.ajax({
+      url: "/api/messages",
+      type: "GET",
+      dataType: "json",
+      success: function (message) {
+        MessageActions.resetMessages(messages);
       }
     });
   }

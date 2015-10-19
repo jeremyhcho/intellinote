@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get '/logins/find', to: 'logins#find'
     resources :notes
     resources :notebooks
+    resources :messages
   end
 
   resources :users, only: [:new, :create]

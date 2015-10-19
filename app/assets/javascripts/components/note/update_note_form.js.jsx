@@ -38,7 +38,7 @@ var UpdateNoteForm = React.createClass({
         <ReactQuill theme="snow"
                     styles={false}
                     onChange={this.handleBodyChange}
-                    defaultValue={this.state.body} />
+                    value={this.state.body} />
       </div>
     );
   }

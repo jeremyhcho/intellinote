@@ -62,6 +62,14 @@ var Main = React.createClass({
     this.setState({currentSlideOut: <Shortcuts updateNote={this.updateNote}/>});
   },
 
+  showMessages: function () {
+    this.setState({currentSlideOut: <Messages addMessage={this.addMessage}/>});
+  },
+
+  addMessage: function () {
+    this.setState({currentSlideOut: <MessageForm />});
+  },
+
   render: function() {
     return (
       <div className="containers">
@@ -70,7 +78,7 @@ var Main = React.createClass({
                    showNotebooks={this.showNotebooks}
                    search={this.search}
                    showNotes={this.showNotes}
-                   showShortcuts={this.showShortcuts}/>
+                   showShortcuts={this.showShortcuts} />
           <SlideOut updateNote={this.updateNote}
                     currentSlideOut={this.state.currentSlideOut} />
           {this.state.currentPage}
