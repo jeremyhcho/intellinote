@@ -33,6 +33,7 @@
   padding: 15px 10px 15px 25px;
   border: 3px solid transparent;
   transition: background 200ms, border 200ms;
+  list-style-type: none;
 }
 
 .note-index-item:hover .body, .note-index-item:hover .timestamp, .note-index-item:hover .title {
