@@ -27,11 +27,10 @@ var NotebookDetail = React.createClass({
   },
 
   _onAdd: function () {
-    var notebook = ApiUtil.retrieveNotebookDetail(this.props.notebook);
     var note = NoteStore.lastAddedNote();
 
     if (notebook.id === note.notebook_id) {
-      notebook.notes.push(note);
+      this.props.notebook.notes.push(note);
       this.props.showNotebookDetail.call(null, notebook);
     }
   },

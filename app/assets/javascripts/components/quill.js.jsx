@@ -10,7 +10,6 @@ var RichText = React.createClass({
       this.editor.on('text-change', this.handleChange);
 
       if (this.props.update) {
-        debugger;
         this.editor.setContents(this.props.body);
       }
     },

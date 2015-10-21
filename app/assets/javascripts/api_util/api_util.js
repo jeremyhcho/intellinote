@@ -33,7 +33,6 @@ var ApiUtil = {
       data: {note: note},
       dataType: "json",
       success: function (newNote) {
-        debugger;
         newNote.body = JSON.parse(newNote.body);
         NoteActions.addNote(newNote);
         ResponseActions.addResponse(["Note Add Success", newNote.message]);
@@ -140,8 +139,6 @@ var ApiUtil = {
         notebook = newNotebook;
       }.bind(this)
     });
-
-    return notebook;
   },
 
   addShortcut: function (note) {
