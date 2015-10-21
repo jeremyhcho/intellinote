@@ -31,7 +31,7 @@ var NotebookDetail = React.createClass({
 
     if (this.props.notebook.id === note.notebook_id) {
       this.props.notebook.notes.push(note);
-      this.props.showNotebookDetail.call(null, notebook);
+      this.props.showNotebookDetail.call(null, this.props.notebook);
     }
   },
 
