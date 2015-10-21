@@ -93,3 +93,96 @@
 .users-list li:hover .timestamp {
   color: white;
 }
+
+.form-grp {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.form-grp:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.form-wrapper label {
+  color: #202020;
+  font-family: Lato;
+  font-weight: 300;
+  font-size: 12px;
+  display: block;
+  float: left;
+  margin: 0;
+  height: 30px;
+  vertical-align: middle;
+  line-height: 30px;
+}
+
+.form-wrapper input {
+  width: 90%;
+  height: 30px;
+  margin: 0 0 0 10px;
+  padding: 0 0 0 10px;
+  border: none;
+  font-family: Lato;
+  font-weight: 300;
+  font-size: 12px;
+  float: left;
+}
+
+.form-wrapper input::-webkit-input-placeholder {
+  font-family: Lato;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.form-wrapper input:focus {
+  outline-width: 0;
+}
+
+.form-wrapper textarea {
+  width: 100%;
+  height: 70vh;
+  border: none;
+  padding: 15px;
+  font-family: Roboto Slab;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.form-wrapper textarea::-webkit-input-placeholder {
+  font-family: Lato;
+  font-weight: 300;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.form-wrapper textarea:focus {
+  outline-width: 0;
+}
+
+.send-message {
+  border: 1px solid #1fae52;
+  background-color: #2dbe60;
+  color: white;
+  font-family: Lato;
+  font-weight: 300;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px;
+  border-radius: 2px;
+  width: 90%;
+  height: 50px;
+  line-height: 20px;
+  vertical-align: middle;
+  transition: background 200ms;
+  margin-right: 10px;
+  margin: 0 auto;
+  display: block;
+}
+
+.send-message:hover {
+  background-color: #1fae52;
+}

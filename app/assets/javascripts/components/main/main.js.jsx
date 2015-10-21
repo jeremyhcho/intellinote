@@ -72,7 +72,7 @@ var Main = React.createClass({
   },
 
   addMessage: function () {
-    this.setState({currentSlideOut: <MessageForm />});
+    this.setState({currentSlideOut: <MessageForm openConvo={this.openConvo}/>});
   },
 
   render: function() {
@@ -84,13 +84,12 @@ var Main = React.createClass({
                    search={this.search}
                    showNotes={this.showNotes}
                    showShortcuts={this.showShortcuts}
-                   showMessages={this.showMessages} />
+                   showMessages={this.showMessages}
+                   handleLogOut={this.handleLogOut} />
           <SlideOut updateNote={this.updateNote}
                     currentSlideOut={this.state.currentSlideOut} />
           {this.state.currentPage}
         </div>
-
-        <button onClick={this.handleLogOut}>Log Out</button>
       </div>
     );
   }

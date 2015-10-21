@@ -10,7 +10,8 @@ class Api::NotebooksController < ApplicationController
     if @notebook.save
       render :add
     else
-      render json: { errors: "Unsaveable" }, status: 500
+      msg = @notebook.errors.messages[:title][0]
+      render json: msg, status: 422
     end
   end
 
@@ -22,13 +23,15 @@ class Api::NotebooksController < ApplicationController
   end
 
   def destroy
-    @notebook = Notebook.find(params[:notebook][:id])
+    @notebook = Notebook.find(params[:id])
 
     if current_user.notebooks.length > 1
       @notebook.delete
-    end
 
-    render json: @notebook
+      render :destroy
+    else
+      render json: "You must have at least one notebook", status: 422;
+    end
   end
 
   private

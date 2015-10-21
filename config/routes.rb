@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create]
+  get '/users/find', to: 'users#find'
   resource :session, only: [:new, :create, :destroy]
 end

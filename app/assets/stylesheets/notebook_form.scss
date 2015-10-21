@@ -65,3 +65,36 @@
   width: 500px;
   height: 400px;
 }
+
+.error-wrapper {
+  text-align: center;
+}
+
+.notebook-errors {
+  display: inline-block;
+  padding: 10px;
+  margin: 0 auto;
+  text-align: center;
+  height: 40px;
+  background-color: #d9534f;
+  border: 1px solid #d43f3a;
+  border-radius: 3px;
+  color: white;
+  font-family: Lato;
+  font-weight: 300;
+  line-height: 20px;
+  vertical-align: middle;
+  position: relative;
+}
+
+.notebook-errors:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #d9534f;
+  bottom: -6px;
+  left: 10px;
+}

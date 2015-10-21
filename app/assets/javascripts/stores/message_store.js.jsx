@@ -61,6 +61,18 @@
       }.bind(this));
 
       return filteredMessages.reverse().splice(0, 50);
+    },
+
+    findUserByUsername: function (username) {
+      var userMessages = _messages.filter(function (message) {
+        return message.recipient.username === username || message.sender.username === username;
+      });
+
+      if (userMessages[0].recipient.username === username) {
+        return userMessages[0].recipient;
+      } else {
+        return userMessages[0].sender;
+      }
     }
   });
 }(this));

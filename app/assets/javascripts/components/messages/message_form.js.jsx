@@ -17,18 +17,22 @@ var MessageForm = React.createClass({
   handleSubmit: function () {
     ApiUtil.sendMessage({username: this.state.username,
                          body: this.state.body});
+
+    this.props.openConvo.call(null, MessageStore.findUserByUsername(this.state.username));
   },
 
   render: function() {
     return (
       <div className="form-wrapper">
         <form>
-          <input type="text"
-                 placeholder="username"
-                 value={this.state.username}
-                 onChange={this.handleUserChange}></input>
-          <textarea placeholder="message"
-                    value={this.state.body}
+          <div className="form-grp">
+            <label>To:</label>
+            <input type="text"
+                   placeholder="Enter username"
+                   value={this.state.username}
+                   onChange={this.handleUserChange}></input>
+          </div>
+          <textarea value={this.state.body}
                     onChange={this.handleBodyChange}></textarea>
           <button className="send-message" onClick={this.handleSubmit}>Send</button>
         </form>

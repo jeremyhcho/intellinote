@@ -34,6 +34,7 @@ var ApiUtil = {
       dataType: "json",
       success: function (newNote) {
         NoteActions.addNote(newNote);
+        ResponseActions.addResponse(["Note Add Success", newNote.message]);
       }
     });
   },
@@ -89,6 +90,10 @@ var ApiUtil = {
       data: {notebook: notebook},
       success: function (newNotebook) {
         NotebookActions.addNotebook(newNotebook);
+      },
+
+      error: function (error) {
+        ResponseActions.addResponse(["Notebook Add Error", error.responseText]);
       }
     });
   },
@@ -96,10 +101,14 @@ var ApiUtil = {
   deleteNotebook: function (notebook) {
     $.ajax({
       url: "/api/notebooks/" + notebook.id,
-      type: "POST",
-      data: {_method: "delete", notebook: notebook},
+      type: "DELETE",
       success: function (delNotebook) {
         NotebookActions.deleteNotebook(delNotebook);
+        ResponseActions.addResponse(["Notebook Delete Success", delNotebook.message]);
+      },
+
+      error: function (error) {
+        ResponseActions.addResponse(["Notebook Delete Fail", error.responseText]);
       }
     });
   },
@@ -125,8 +134,9 @@ var ApiUtil = {
       type: "PATCH",
       data: {note: note},
       dataType: "json",
-      success: function (note) {
-        NoteActions.updateNote(note);
+      success: function (updatedNote) {
+        NoteActions.updateNote(updatedNote);
+        ResponseActions.addResponse(["Note Update Success", updatedNote.message]);
       }
     });
   },
@@ -150,7 +160,7 @@ var ApiUtil = {
       data: {message: message},
       success: function (newMessage) {
         MessageActions.addMessage(newMessage);
-      }
+      }.bind(this)
     });
   }
 };

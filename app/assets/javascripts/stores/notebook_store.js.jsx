@@ -22,7 +22,11 @@
 
     removeNotebook: function (notebook) {
       if (typeof this.find(notebook.id) !== "undefined") {
-        var idx = _notebooks.indexOf(notebook);
+        var ids = _notebooks.map(function (notebook) {
+          return notebook.id;
+        });
+
+        var idx = ids.indexOf(notebook.id);
         _notebooks.splice(idx, 1);
         this.notebooksChanged();
       }

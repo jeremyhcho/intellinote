@@ -201,3 +201,119 @@
   transition: visibility 200ms ease-out 0s;
   z-index: 10;
 }
+
+.sidebar-success-msg {
+  display: inline-block;
+  position: fixed;
+  background-color: #2dbe60;
+  color: white;
+  border-radius: 3px;
+  padding: 10px;
+  font-family: Lato;
+  font-weight: 300;
+  margin-left: 30px;
+}
+
+.sidebar-success-msg:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -4px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #2dbe60;
+}
+
+.sidebar-fail-msg {
+  display: inline-block;
+  position: fixed;
+  background-color: #d9534f;
+  color: white;
+  border-radius: 3px;
+  padding: 10px;
+  font-family: Lato;
+  font-weight: 300;
+  margin-left: 30px;
+}
+
+.sidebar-fail-msg:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -4px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #d9534f;
+}
+
+.log-out-li {
+  position: relative;
+  margin-top: 50px;
+  padding: 5px 9px;
+}
+
+.log-out-li:after {
+  display: block;
+  content: "";
+  top: 35px;
+  left: 80px;
+  position: absolute;
+  margin: auto;
+  border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+	border-right: 5px solid #5c5c5c;
+  visibility: hidden;
+  transition: visibility 200ms ease-out 0s;
+  z-index: 10;
+}
+
+.log-out-li:before {
+  content: attr(data-content);
+  position: absolute;
+  top: 26px;
+  left: 85px;
+  visibility: hidden;
+  white-space: nowrap;
+  color: white;
+  background-color: #5C5C5C;
+  font-size: 12px;
+  font-family: Open Sans;
+  text-transform: uppercase;
+  padding: 5px 9px;
+  border-radius: 3px;
+  text-align: center;
+  transition: visibility 200ms ease-out 0s;
+  z-index: 10;
+}
+
+.log-out:hover {
+  background-color: #ff9800;
+  background-image: url("/assets/white-log-out.png");
+  background-size: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.log-out-li:hover:after, .log-out-li:hover:before {
+  visibility: visible;
+  transition: visibility 200ms linear 500ms;
+}
+
+button {
+  border: none;
+}
+
+.log-out {
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  background: url("/assets/log-out.png");
+  background-size: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background 200ms;
+}

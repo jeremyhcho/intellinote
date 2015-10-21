@@ -1,4 +1,5 @@
 days = [
+  "X",
   "Sun",
   "Mon",
   "Tue",
@@ -9,6 +10,7 @@ days = [
 ]
 
 months = [
+  "X",
   "Jan",
   "Feb",
   "Mar",
@@ -28,10 +30,10 @@ json.array! @messages do |message|
   json.created_at time_ago_in_words(message.created_at)
 
   split_date = message.created_at.to_s.split(" ")
-  date = split_date[0]
+  date = split_date[0].split("-");
   time = split_date[1].split(":")
-  am_pm = time[0].to_i > 12 ? "AM" : "PM"
-  hour = time[0].to_i > 12 ? time[0].to_i - 12 : hour
+  am_pm = time[0].to_i > 12 ? "PM" : "AM"
+  hour = time[0].to_i > 12 ? time[0].to_i - 12 : time[0]
 
   day = days[message.created_at.wday]
   month = months[message.created_at.month]

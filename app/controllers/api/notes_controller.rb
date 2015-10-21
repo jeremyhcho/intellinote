@@ -10,7 +10,7 @@ class Api::NotesController < ApplicationController
     if @note.save
       render :show
     else
-      render json: { errors: "Unsaveable" }, status: 500
+      # error msg
     end
   end
 
