@@ -29,7 +29,7 @@ var NotebookDetail = React.createClass({
   _onAdd: function () {
     var note = NoteStore.lastAddedNote();
 
-    if (notebook.id === note.notebook_id) {
+    if (this.props.notebook.id === note.notebook_id) {
       this.props.notebook.notes.push(note);
       this.props.showNotebookDetail.call(null, notebook);
     }
