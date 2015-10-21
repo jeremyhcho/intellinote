@@ -3,8 +3,16 @@ var AddNoteForm = React.createClass({
     return {
       title: "",
       body: "",
-      notebookId: this.props.notebooks[0].id
+      notebookId: this.findCorrectNotebook()
     };
+  },
+
+  findCorrectNotebook: function () {
+    if (typeof this.props.notebook !== "undefined" && typeof this.props.notebook.id !== "undefined") {
+      return this.props.notebook.id;
+    } else {
+      return this.props.notebooks[0].id;
+    }
   },
 
   handleSubmit: function () {
@@ -19,8 +27,8 @@ var AddNoteForm = React.createClass({
     this.setState({title: e.currentTarget.value});
   },
 
-  handleBodyChange: function (value, delta, src) {
-    this.setState({body: value});
+  handleBodyChange: function (str) {
+    this.setState({body: str});
   },
 
   updateNoteNotebook: function (notebookId) {
@@ -41,9 +49,7 @@ var AddNoteForm = React.createClass({
                className="note-title"
                value={this.state.title}></input>
 
-        <ReactQuill theme="snow"
-                   styles={ false }
-                   onChange={this.handleBodyChange}/>
+       <RichText handleBodyChange={this.handleBodyChange} update={false} body={this.state.body}/>
       </div>
     );
   }

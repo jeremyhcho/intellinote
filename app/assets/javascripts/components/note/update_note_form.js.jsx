@@ -5,6 +5,7 @@ var UpdateNoteForm = React.createClass({
       body: ""
     };
   },
+
   componentDidMount: function() {
     this.setState({title: this.props.note.title, body: this.props.note.body});
   },
@@ -22,8 +23,8 @@ var UpdateNoteForm = React.createClass({
     this.setState({title: e.currentTarget.value});
   },
 
-  handleBodyChange: function (e) {
-    this.setState({body: e.currentTarget.value});
+  handleBodyChange: function (str) {
+    this.setState({body: str});
   },
 
   render: function() {
@@ -35,10 +36,7 @@ var UpdateNoteForm = React.createClass({
                className="note-title"
                value={this.state.title}></input>
 
-        <ReactQuill theme="snow"
-                    styles={false}
-                    onChange={this.handleBodyChange}
-                    value={this.state.body} />
+        <RichText handleBodyChange={this.handleBodyChange} update={true} body={this.state.body || this.props.note.body}/>
       </div>
     );
   }

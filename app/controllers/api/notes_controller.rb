@@ -10,6 +10,7 @@ class Api::NotesController < ApplicationController
     if @note.save
       render :show
     else
+      fail
       # error msg
     end
   end

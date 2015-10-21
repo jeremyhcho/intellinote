@@ -87,6 +87,7 @@
   transition: background 0.2s ease-in-out;
   text-align: center;
   margin: 10px auto;
+  list-style-type: none;
 }
 
 .shortcuts {
@@ -301,11 +302,8 @@
   transition: visibility 200ms linear 500ms;
 }
 
-button {
-  border: none;
-}
-
 .log-out {
+  border: none;
   display: block;
   margin: 15px auto 0;
   border-radius: 100%;
@@ -316,4 +314,8 @@ button {
   background-position: center;
   background-repeat: no-repeat;
   transition: background 200ms;
+}
+
+.log-out:focus {
+  outline-width: 0;
 }

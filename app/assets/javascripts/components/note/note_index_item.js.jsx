@@ -37,6 +37,13 @@ var NoteIndexItem = React.createClass({
   },
 
   render: function() {
+    var body;
+    if (this.state.body === "") {
+      body = this.state.body;
+    } else {
+      body = this.state.body.ops[0].insert
+    }
+
     return (
       <li onClick={this.handleClick} className="note-index-item">
         <div className="options">
@@ -45,7 +52,7 @@ var NoteIndexItem = React.createClass({
         </div>
         <p className="title">{this.state.title}</p>
         <p className="timestamp">{this.state.updatedAt} ago</p>
-        <p className="body" dangerouslySetInnerHTML={{__html: this.state.body}}></p>
+        <p className="body">{body}</p>
       </li>
     );
   }

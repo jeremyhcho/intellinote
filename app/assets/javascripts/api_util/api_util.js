@@ -33,6 +33,8 @@ var ApiUtil = {
       data: {note: note},
       dataType: "json",
       success: function (newNote) {
+        debugger;
+        newNote.body = JSON.parse(newNote.body);
         NoteActions.addNote(newNote);
         ResponseActions.addResponse(["Note Add Success", newNote.message]);
       }
@@ -45,8 +47,10 @@ var ApiUtil = {
       type: "PATCH",
       data: {note: note},
       dataType: "json",
-      success: function () {
-        NoteActions.updateNote(note);
+      success: function (newNote) {
+        newNote.body = JSON.parse(newNote.body);
+        NoteActions.updateNote(newNote);
+        ResponseActions.addResponse(["Note Update Success", newNote.message]);
       }
     });
   },
@@ -57,6 +61,11 @@ var ApiUtil = {
       type: "GET",
       dataType: "json",
       success: function (notes) {
+        notes = notes.map(function (note) {
+          note.body = JSON.parse(note.body);
+          return note;
+        });
+
         NoteActions.resetNotes(notes);
       }
     });
@@ -78,6 +87,15 @@ var ApiUtil = {
       type: "GET",
       dataType: "json",
       success: function (notebooks) {
+        notebooks = notebooks.map(function (notebook) {
+          notebook.notes.map(function (note) {
+            note.body = JSON.parse(note.body);
+            return note.body;
+          });
+
+          return notebook;
+        })
+
         NotebookActions.receiveAllNotebooks(notebooks);
       }
     });

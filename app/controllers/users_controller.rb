@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
       Notebook.create({title: "My First Notebook", user_id: @user.id})
-      redirect_to root_url
+      login_user!(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new

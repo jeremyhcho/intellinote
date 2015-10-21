@@ -80,6 +80,7 @@
 .conversation-item {
   width: 200px;
   height: 90px;
+  list-style-type: none;
 }
 
 .right {
@@ -115,25 +116,25 @@
   padding: 10px;
 }
 
-.right:after {
-  position: absolute;
-  content: "";
-  right: -5px;
-  top: 6px;
-  border-top: 1px solid transparent;
-  border-bottom: 9px solid transparent;
-  border-left: 5px solid #2dbe60;
-}
-
-.left:after {
-  position: absolute;
-  content: "";
-  left: 5px;
-  top: 6px;
-  border-top: 1px solid transparent;
-  border-bottom: 9px solid transparent;
-  border-left: 5px solid #2dbe60;
-}
+// .right:after {
+//   position: absolute;
+//   content: "";
+//   right: -5px;
+//   top: 6px;
+//   border-top: 1px solid transparent;
+//   border-bottom: 9px solid transparent;
+//   border-left: 5px solid #2dbe60;
+// }
+//
+// .left:after {
+//   position: absolute;
+//   content: "";
+//   left: 5px;
+//   top: 6px;
+//   border-top: 1px solid transparent;
+//   border-bottom: 9px solid transparent;
+//   border-left: 5px solid #2dbe60;
+// }
 
 .msg-input {
   margin-top: 50px;
