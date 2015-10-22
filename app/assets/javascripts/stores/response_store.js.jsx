@@ -4,7 +4,8 @@
   var _responses = {}, NOTEBOOK_ADD_ERROR = "NOTEBOOK_ADD_ERROR",
     NOTEBOOK_DELETE_SUCCESS = "NOTEBOOK_DELETE_SUCCESS",
     NOTEBOOK_DELETE_FAIL = "NOTEBOOK_DELETE_FAIL",
-    NOTE_ADD_SUCCESS = "NOTE_ADD_SUCCESS", NOTE_UPDATE_SUCCESS = "NOTE_UPDATE_SUCCESS";
+    NOTE_ADD_SUCCESS = "NOTE_ADD_SUCCESS", NOTE_UPDATE_SUCCESS = "NOTE_UPDATE_SUCCESS",
+    NOTE_ADD_FAIL = "NOTE_ADD_FAIL";
 
   root.ResponseStore = $.extend({}, EventEmitter.prototype, {
     addResponse: function (type, msg) {
@@ -26,6 +27,9 @@
         case "Note Update Success":
           this.noteUpdateSuccess();
           break;
+        case "Note Add Fail":
+          this.noteAddFail();
+          break;
       }
     },
 
@@ -35,6 +39,14 @@
 
     removeNoteAddSuccessHandler: function (handler) {
       this.removeListener(NOTE_ADD_SUCCESS, handler);
+    },
+
+    addNoteAddFailHandler: function (handler) {
+      this.on(NOTE_ADD_FAIL, handler);
+    },
+
+    removeNoteAddFailHandler: function (handler) {
+      this.removeListener(NOTE_ADD_FAIL, handler);
     },
 
     addNotebookDeleteSuccessHandler: function (handler) {
@@ -78,7 +90,15 @@
     },
 
     noteAddSuccess: function () {
-      this.emit(NOTE_ADD_SUCCESS)
+      this.emit(NOTE_ADD_SUCCESS);
+    },
+
+    noteAddFail: function () {
+      this.emit(NOTE_ADD_FAIL);
+    },
+
+    findNoteAddFail: function () {
+      return _responses["Note Add Fail"];
     },
 
     findNoteAddSuccess: function () {

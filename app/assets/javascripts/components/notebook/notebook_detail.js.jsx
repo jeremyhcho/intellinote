@@ -50,6 +50,7 @@ var NotebookDetail = React.createClass({
     return (
       <div className="notebook-detail">
         <div className="upper-detail">
+          <div className="add-note-button" onClick={this.props.addNote.bind(null, this.props.notebook)}></div>
           <h1>{this.props.notebook.title}</h1>
           <p>Created by {user.extract.username}</p>
         </div>

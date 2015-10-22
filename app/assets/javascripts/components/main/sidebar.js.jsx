@@ -12,6 +12,7 @@ var Sidebar = React.createClass({
     ResponseStore.addNotebookDeleteFailHandler(this._onNotebookDeleteFail);
     ResponseStore.addNoteAddSuccessHandler(this._onNoteAddSuccess);
     ResponseStore.addNoteUpdateSuccessHandler(this._onNoteUpdateSuccess);
+    ResponseStore.addNoteAddFailHandler(this._onNoteAddFail);
   },
 
   componentWillUnmount: function () {
@@ -19,6 +20,12 @@ var Sidebar = React.createClass({
     ResponseStore.removeNotebookDeleteFailHandler(this._onNotebookDeleteFail);
     ResponseStore.removeNoteAddSuccessHandler(this._onNoteAddSuccess);
     ResponseStore.removeNoteUpdateSuccessHandler(this._onNoteUpdateSuccess);
+    ResponseStore.removeNoteAddFailHandler(this._onNoteAddFail);
+  },
+
+  _onNoteAddFail: function () {
+    this.setState({responseMsgs: ResponseStore.findNoteAddFail(),
+                   status: "FAIL", type: "NOTE"}, this.removeResponse);
   },
 
   _onNoteUpdateSuccess: function () {
@@ -76,6 +83,8 @@ var Sidebar = React.createClass({
       if (this.state.type === "NOTE") {
         if (this.state.status === "SUCCESS") {
           response = <div className="sidebar-success-msg note-add-msg">{this.state.responseMsgs[0]}</div>;
+        } else {
+          response = <div className="sidebar-fail-msg note-add-msg">{this.state.responseMsgs[0]}</div>;
         }
       }
     }

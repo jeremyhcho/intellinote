@@ -10,8 +10,8 @@ class Api::NotesController < ApplicationController
     if @note.save
       render :show
     else
-      fail
-      # error msg
+      msg = @note.errors.full_messages[0]
+      render json: msg, status: 422
     end
   end
 

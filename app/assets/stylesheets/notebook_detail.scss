@@ -19,6 +19,7 @@
   font-family: Roboto Slab;
   font-weight: 300;
   font-size: 24px;
+  text-align: center;
 }
 
 .upper-detail p {
@@ -81,4 +82,23 @@
   background-size: 75%;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.add-note-button {
+  background: url("/assets/white-plus.png");
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid white;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  float: left;
+  opacity: 0.8;
+  margin: 20px 0 0 30px;
+}
+
+.add-note-button:hover {
+  cursor: pointer;
+  opacity: 1;
 }

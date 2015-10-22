@@ -19,9 +19,6 @@ var ApiUtil = {
         window.location = "/";
         NoteStore.receiveAllNotes([]);
         LoginAction.removeCurrentUser(user);
-      },
-
-      error: function (e) {
       }
     });
   },
@@ -36,6 +33,9 @@ var ApiUtil = {
         newNote.body = JSON.parse(newNote.body);
         NoteActions.addNote(newNote);
         ResponseActions.addResponse(["Note Add Success", newNote.message]);
+      },
+      error: function (error) {
+        ResponseActions.addResponse(["Note Add Fail", error.responseText]);
       }
     });
   },
