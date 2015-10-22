@@ -8,14 +8,21 @@ var UpdateNoteForm = React.createClass({
 
   componentDidMount: function() {
     TagStore.addChangeHandler(this._onChange);
+
     if (typeof TagStore.all()[0] === "undefined") {
       ApiUtil.fetchAllTags();
     }
+
+    var tags = TagStore.findByNote(this.props.note.id);
+    var tagNames = tags.map(function (tag) {
+      return tag.name;
+    });
 
     this.t = $("#tagBox").tagging({"no-duplicate-callback": function () {
       console.log("No duplicates");
     }, "no-spacebar": true});
 
+    this.t[0].tagging("add", tagNames);
     this.setState({title: this.props.note.title, body: this.props.note.body});
   },
 

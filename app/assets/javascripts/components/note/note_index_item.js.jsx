@@ -23,6 +23,7 @@ var NoteIndexItem = React.createClass({
     $('.notes-ul').children().removeClass('clicked');
 
     e.currentTarget.className += " clicked";
+    debugger;
     this.props.updateNote.call(null, this.props.note);
   },
 
