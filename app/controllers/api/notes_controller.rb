@@ -30,7 +30,7 @@ class Api::NotesController < ApplicationController
 
   def destroy
     @note = Note.find(params[:id])
-    @note.delete
+    @note.destroy
 
     render json: @note
   end

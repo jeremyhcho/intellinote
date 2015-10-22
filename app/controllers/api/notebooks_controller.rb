@@ -26,7 +26,7 @@ class Api::NotebooksController < ApplicationController
     @notebook = Notebook.find(params[:id])
 
     if current_user.notebooks.length > 1
-      @notebook.delete
+      @notebook.destroy
 
       render :destroy
     else
