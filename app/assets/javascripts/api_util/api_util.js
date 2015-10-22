@@ -142,7 +142,22 @@ var ApiUtil = {
   },
 
   addShortcut: function (note) {
-    note.shortcut = !note.shortcut;
+    note.shortcut = true;
+
+    $.ajax({
+      url: "/api/notes/" + note.id,
+      type: "PATCH",
+      data: {note: note},
+      dataType: "json",
+      success: function (updatedNote) {
+        NoteActions.updateNote(updatedNote);
+        ResponseActions.addResponse(["Note Update Success", updatedNote.message]);
+      }
+    });
+  },
+
+  removeShortcut: function (note) {
+    note.shortcut = false;
 
     $.ajax({
       url: "/api/notes/" + note.id,

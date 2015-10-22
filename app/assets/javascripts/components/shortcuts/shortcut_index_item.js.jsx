@@ -3,9 +3,9 @@ var ShortcutIndexItem = React.createClass({
     this.props.updateNote.call(null, this.props.shortcut);
   },
 
-  toggleShortcut: function (e) {
+  removeShortcut: function (e) {
     e.stopPropagation();
-    ApiUtil.addShortcut(this.props.shortcut);
+    ApiUtil.removeShortcut(this.props.shortcut);
   },
 
   render: function() {
@@ -13,7 +13,7 @@ var ShortcutIndexItem = React.createClass({
       <li onClick={this.handleClick} className="shortcuts-item">
         <span className="black-note"></span>&nbsp;&nbsp;
         {this.props.shortcut.title}
-        <span onClick={this.toggleShortcut} className="black-close"></span>
+        <span onClick={this.removeShortcut} className="black-close"></span>
       </li>
     );
   }
