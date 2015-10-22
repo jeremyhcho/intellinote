@@ -22,6 +22,11 @@ class User < ActiveRecord::Base
     foreign_key: "recipient_id",
     primary_key: "id"
 
+  has_many :tags,
+    class_name: "Tag",
+    foreign_key: "user_id",
+    primary_key: "id"
+
   has_many :notebooks
 
   def is_password?(password)

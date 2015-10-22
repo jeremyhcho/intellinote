@@ -3,8 +3,15 @@ var AddNoteForm = React.createClass({
     return {
       title: "",
       body: "",
-      notebookId: this.findCorrectNotebook()
+      notebookId: this.findCorrectNotebook(),
+      shortcut: false,
     };
+  },
+
+  componentDidMount: function() {
+    this.t = $("#tagBox").tagging({"no-duplicate-callback": function () {
+      console.log("No duplicates");
+    }, "no-spacebar": true});
   },
 
   findCorrectNotebook: function () {
@@ -15,10 +22,16 @@ var AddNoteForm = React.createClass({
     }
   },
 
-  handleSubmit: function () {
+  handleSubmit: function (shortcut) {
+    if (typeof shortcut === "undefined") {
+      shortcut = false;
+    }
+
     ApiUtil.addNote({title: this.state.title,
                      body: this.state.body,
-                     notebook_id: this.state.notebookId});
+                     notebook_id: this.state.notebookId,
+                     shortcut: shortcut,
+                     tags: this.t[0].tagging("getTags")});
 
     this.setState({title: "", body: ""});
   },
@@ -38,11 +51,12 @@ var AddNoteForm = React.createClass({
   render: function() {
     return (
       <div className="create-note-div">
-        <NoteToolBelt notebooks={this.props.notebooks}
+        <NoteToolBelt update={false}
+                      notebooks={this.props.notebooks}
                       notebook={this.props.notebook}
                       handleSubmit={this.handleSubmit}
                       updateNoteNotebook={this.updateNoteNotebook}/>
-
+        <div data-tags-input-name="tag" id="tagBox">Add more tags!</div>
         <input type="text"
                placeholder="Title your note"
                onChange={this.handleTitleChange}

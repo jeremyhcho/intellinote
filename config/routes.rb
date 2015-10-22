@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :notes
     resources :notebooks
     resources :messages
+    resources :tags
   end
 
   resources :users, only: [:new, :create]

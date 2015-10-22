@@ -8,6 +8,11 @@
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
       <h1>Sign In</h1>
+      <% if flash.now[:errors] %>
+        <div class="alert alert-danger text-center" role="alert">
+          <%= flash.now[:errors][0] %>
+        </div>
+      <% end %>
     </div>
   </div>
 

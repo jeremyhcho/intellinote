@@ -8,6 +8,10 @@ class Api::NotesController < ApplicationController
     @note.author_id = current_user.id
 
     if @note.save
+      params[:note][:tags].each do |tag|
+        Tag.create({name: tag, user_id: current_user.id, note_id: @note.id});
+      end
+
       render :show
     else
       msg = @note.errors.full_messages[0]
@@ -22,6 +26,25 @@ class Api::NotesController < ApplicationController
     @note = Note.find(params[:note][:id])
 
     if @note.update(note_params)
+
+      tags_to_delete = @note.tags.to_a.map { |tag| tag.name } - (params[:note][:tags] || [])
+      tags_to_delete = tags_to_delete.map do |tag|
+        Tag.where(name: tag, note_id: @note.id)
+      end
+
+      if params[:note][:tags]
+        tags_to_add = params[:note][:tags].select { |tag| !@note.tags.include?(tag) }
+      else
+        tags_to_add = []
+      end
+
+      tags_to_add.each do |tag|
+        Tag.create({name: tag, user_id: current_user.id, note_id: @note.id})
+      end
+
+      tags_to_delete.each do |tag|
+        Tag.destroy(tag)
+      end
       render :update
     else
       render json: { errors: "Not updatable" }, status: 422

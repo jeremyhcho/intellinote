@@ -21,5 +21,6 @@
 //= require react_bootstrap
 //= require quill
 //= require react-quill.min
+//= require taggle.min
 //= require components
 //= require_tree .

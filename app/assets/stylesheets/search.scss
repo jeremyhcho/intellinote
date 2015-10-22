@@ -38,9 +38,9 @@
 .bottom-border p {
   margin: 10px 0 0 0;
   height: 25px;
-  width: 80px;
   float: left;
   text-align: left;
+  display: inline-block;
 }
 
 .bottom-border p {
@@ -50,8 +50,9 @@
 }
 
 .search-dropdown-div {
-  width: 120px;
+  display: inline-block;
   float: left;
+  margin-left: 6px;
 }
 
 .search-dropdown-div:hover .search-notebook-dropdown {
@@ -63,7 +64,7 @@
 .search-dropdown-div p {
   color: #2dbe60;
   font-family: Arvo;
-  width: 120px;
+  display: inline-block;
 }
 
 .green-arrow {
@@ -75,6 +76,10 @@
   display: inline-block;
   margin-left: 5px;
   margin-bottom: 2px;
+}
+
+.current-notebook {
+  display: inline-block;
 }
 
 .current-notebook:hover {

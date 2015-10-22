@@ -120,7 +120,8 @@ var Sidebar = React.createClass({
                 className="lower-buttons notebooks"
                 data-content="Notebooks">{this.displayNotebookResponse()}</li>
             <li className="lower-buttons tags"
-                data-content="Tags"></li>
+                data-content="Tags"
+                onClick={this.props.showTags}></li>
             <li className="log-out-li" data-content="Log Out">
               <button className="log-out" onClick={this.props.handleLogOut}></button>
             </li>

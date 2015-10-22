@@ -33,6 +33,13 @@
   background-repeat: no-repeat;
 }
 
+.toggled-shortcut {
+  background: url("/assets/green-shortcut.png");
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .shortcut-icon:hover {
   background: url("/assets/green-shortcut.png");
   background-size: 70%;

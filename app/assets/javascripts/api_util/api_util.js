@@ -192,5 +192,16 @@ var ApiUtil = {
         MessageActions.addMessage(newMessage);
       }.bind(this)
     });
+  },
+
+  fetchAllTags: function () {
+    $.ajax({
+      url: "/api/tags",
+      type: "GET",
+      dataType: "json",
+      success: function (tags) {
+        TagActions.resetTags(tags);
+      }
+    });
   }
 };

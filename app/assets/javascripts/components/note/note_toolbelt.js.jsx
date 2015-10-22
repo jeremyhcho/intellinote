@@ -3,7 +3,8 @@ var NoteToolBelt = React.createClass({
     return {
       notebook: this.props.notebook || this.props.notebooks[0],
       searchText: "",
-      notebooks: this.props.notebooks
+      notebooks: this.props.notebooks,
+      shortcut: false
     };
   },
 
@@ -16,17 +17,30 @@ var NoteToolBelt = React.createClass({
     this.setState({searchText: e.currentTarget.value});
   },
 
+  toggleShortcut: function () {
+    this.setState({shortcut: !this.state.shortcut});
+  },
+
   render: function() {
     var notebooks = this.props.notebooks.filter(function (notebook) {
       return notebook.title.toLowerCase().match(this.state.searchText.toLowerCase());
     }.bind(this));
 
+    var deleteDiv, toggledShortcut = "";
+    if (this.props.update) {
+      deleteDiv = <div className="toolbelt-icon delete-icon"></div>;
+    }
+
+    if (this.state.shortcut) {
+      toggledShortcut = " toggled-shortcut";
+    }
+
     return (
       <div className="toolbelt">
-        <div onClick={this.props.handleSubmit} className="toolbelt-icon check-icon"></div>
-        <div className="toolbelt-icon reminder-icon"></div>
-        <div className="toolbelt-icon shortcut-icon"></div>
-        <div className="toolbelt-icon delete-icon"></div>
+        <div onClick={this.props.handleSubmit.bind(null, this.state.shortcut)}
+             className="toolbelt-icon check-icon"></div>
+        <div onClick={this.toggleShortcut} className={"toolbelt-icon shortcut-icon" + toggledShortcut}></div>
+        {deleteDiv}
         <div className="notebook-dropdown-div">
           <p>{this.state.notebook && typeof this.state.notebook.id !== "undefined" ? this.state.notebook.title : this.props.notebooks[0].title}<span className="down-arrow"></span></p>
           <ul className="notebook-dropdown">
