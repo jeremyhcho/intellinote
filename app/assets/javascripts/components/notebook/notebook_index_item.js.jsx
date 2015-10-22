@@ -2,6 +2,7 @@ var NotebookIndexItem = React.createClass({
   deleteNotebook: function (e) {
     e.stopPropagation();
     ApiUtil.deleteNotebook(this.props.notebook);
+    ApiUtil.fetchAllNotes();
   },
 
   render: function() {
