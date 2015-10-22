@@ -74,8 +74,8 @@ var ApiUtil = {
     $.ajax({
       url: "/api/notes/" + note.id,
       type: "DELETE",
-      success: function () {
-        NoteActions.deleteNote(note);
+      success: function (delNote) {
+        NoteActions.deleteNote(delNote);
       }
     });
   },

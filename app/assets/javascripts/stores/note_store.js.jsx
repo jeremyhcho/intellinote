@@ -99,7 +99,7 @@
     findByNotebook: function (notebookId) {
       return (
         _notes.filter(function (note) {
-          return note.id === notebookId;
+          return note.notebook_id === notebookId;
         }.bind(this))
       );
     },
