@@ -41,7 +41,11 @@ var NoteIndexItem = React.createClass({
     if (this.state.body === "") {
       body = this.state.body;
     } else {
-      body = this.state.body.ops[0].insert
+      if (typeof this.state.body === "string") {
+        body = JSON.parse(this.state.body).ops[0].insert;
+      } else {
+        body = this.state.body.ops[0].insert;
+      }
     }
 
     return (
