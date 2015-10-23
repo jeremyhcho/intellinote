@@ -50,8 +50,29 @@
 
 <script type="text/javascript">
   $('.guest').on("click", function () {
-    $('.username').val('intelliguest');
-    $('.password').val('042793jc');
-    $('.sign-up-form').submit();
+    var username = "intelliguest", password = "042793jc", i = 0, j = 0;
+
+    var usernameInterval = setInterval(function () {
+      $('.username').val($('.username').val() + username[i]);
+      i += 1;
+      if (i === username.length) {
+        clearInterval(usernameInterval);
+      }
+    }.bind(this), 50);
+
+    setTimeout(function () {
+      var passwordInterval = setInterval(function () {
+        $('.password').val($('.password').val() + password[j]);
+        j += 1
+
+        if (j === password.length) {
+          clearInterval(passwordInterval);
+        }
+      }.bind(this), 50)
+    }.bind(this), 600)
+
+    setTimeout(function () {
+      $('.sign-up-form').submit();
+    }, 1100)
   });
 </script>
