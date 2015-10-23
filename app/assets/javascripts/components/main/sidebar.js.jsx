@@ -94,7 +94,7 @@ var Sidebar = React.createClass({
 
   render: function() {
     return (
-      <div className="col-xs-1">
+      <div className="sidebar-wrapper">
         <div className="sidebar">
           <img className="logo" src="/assets/logo" />
           <ul>
