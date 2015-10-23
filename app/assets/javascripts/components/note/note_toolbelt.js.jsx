@@ -26,11 +26,7 @@ var NoteToolBelt = React.createClass({
       return notebook.title.toLowerCase().match(this.state.searchText.toLowerCase());
     }.bind(this));
 
-    var deleteDiv, toggledShortcut = "";
-    if (this.props.update) {
-      deleteDiv = <div className="toolbelt-icon delete-icon"></div>;
-    }
-
+    var toggledShortcut;
     if (this.state.shortcut) {
       toggledShortcut = " toggled-shortcut";
     }
@@ -40,7 +36,6 @@ var NoteToolBelt = React.createClass({
         <div onClick={this.props.handleSubmit.bind(null, this.state.shortcut)}
              className="toolbelt-icon check-icon"></div>
         <div onClick={this.toggleShortcut} className={"toolbelt-icon shortcut-icon" + toggledShortcut}></div>
-        {deleteDiv}
         <div className="notebook-dropdown-div">
           <p>{this.state.notebook && typeof this.state.notebook.id !== "undefined" ? this.state.notebook.title : this.props.notebooks[0].title}<span className="down-arrow"></span></p>
           <ul className="notebook-dropdown">

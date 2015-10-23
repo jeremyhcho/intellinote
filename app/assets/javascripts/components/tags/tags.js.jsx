@@ -33,7 +33,6 @@ var Tags = React.createClass({
       }
     });
 
-    debugger;
     for (var i = 0; i < uniqueTags.length; i++) {
       if (i === uniqueTags.length - 1) {
         formattedTags.push(<TagIndexItem key={uniqueTags[i].id} tag={uniqueTags[i]} />);

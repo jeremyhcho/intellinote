@@ -1,6 +1,6 @@
 var ShortcutIndexItem = React.createClass({
   handleClick: function () {
-    this.props.updateNote.call(null, this.props.shortcut);
+    this.props.updateNote(this.props.shortcut);
   },
 
   removeShortcut: function (e) {
