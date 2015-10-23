@@ -24,17 +24,18 @@
 
           <div class="form-group">
             <label class="label-text">Username</label>
-            <input type="text" class="form-control" name="user[username]">
+            <input type="text" class="form-control username" name="user[username]">
           </div>
 
           <div class="form-group">
             <label class="label-text">Password</label>
-            <input type="password" class="form-control" name="user[password]">
+            <input type="password" class="form-control password" name="user[password]">
           </div>
 
           <label class="label-text"><input type="checkbox" class="checkbox-input">&nbsp;&nbsp;Remember Me</label>
 
           <input type="submit" value="Sign In" class="btn btn-custom">
+          <input type="button" value="Guest Login" class="btn btn-custom guest">
           <a class="forgot-password" href="#">Forgot Password?</a>
         </form>
       </div>
@@ -46,3 +47,9 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('.guest').on("click", function (e) {
+    
+  });
+</script>

@@ -75,6 +75,6 @@ Tag.create!([
   {name: "delicious", user_id: 1, note_id: 14}
 ])
 User.create!([
-  {username: "hyungccho", password_digest: "$2a$10$Das41eMK83s2lMVNoHP/0eqPPA7xD/mgVneF.Rpyyja6Of7gW7Lia", session_token: "AAELYBbck2xkscFuPgfb2Q"},
-  {username: "elim1214", password_digest: "$2a$10$C603vxn6GPafQQgwrBvppe.iLADZieckpqPTIcCDK83XUtd0mBhKW", session_token: "DQKdLkZNS-JU-9DN7AN-vQ"}
+  {username: "intelliguest", password_digest: "$2a$10$Das41eMK83s2lMVNoHP/0eqPPA7xD/mgVneF.Rpyyja6Of7gW7Lia", session_token: "AAELYBbck2xkscFuPgfb2Q"},
+  {username: "Esther", password_digest: "$2a$10$C603vxn6GPafQQgwrBvppe.iLADZieckpqPTIcCDK83XUtd0mBhKW", session_token: "DQKdLkZNS-JU-9DN7AN-vQ"}
 ])
