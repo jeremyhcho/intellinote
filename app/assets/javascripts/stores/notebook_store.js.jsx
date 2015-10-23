@@ -65,6 +65,14 @@
       }
 
       this.notebooksChanged();
+    },
+
+    findNotebookByNote: function (note) {
+      var notebook = _notebooks.filter(function (notebook) {
+        return notebook.id === note.notebook_id;
+      });
+
+      return notebook[0];
     }
   });
 }(this));

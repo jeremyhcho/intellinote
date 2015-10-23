@@ -20,22 +20,35 @@ var Tags = React.createClass({
 
   render: function() {
     var formattedTags = [];
+    var uniqueTags = [];
+    var uniqueTagnames = [];
+    var tagNames = this.state.tags.map(function (tag) {
+      return tag.name;
+    });
 
-    for (var i = 0; i < this.state.tags.length; i++) {
-      if (i === this.state.tags.length - 1) {
-        formattedTags.push(<TagIndexItem key={this.state.tags[i]} tag={this.state.tags[i]} />);
-      } else if (i === 0 && this.state.tags[i].name[0] !== this.state.tags[i + 1].name[0]) {
-        formattedTags.push(<li className="letters">{this.state.tags[i].name[0]}</li>);
-        formattedTags.push(<TagIndexItem key={this.state.tags[i].id} tag={this.state.tags[i]} />);
-        formattedTags.push(<li className="letters">{this.state.tags[i + 1].name[0]}</li>);
+    this.state.tags.forEach(function (tag) {
+      if (uniqueTagnames.indexOf(tag.name) === -1) {
+        uniqueTags.push(tag);
+        uniqueTagnames.push(tag.name);
+      }
+    });
+
+    debugger;
+    for (var i = 0; i < uniqueTags.length; i++) {
+      if (i === uniqueTags.length - 1) {
+        formattedTags.push(<TagIndexItem key={uniqueTags[i].id} tag={uniqueTags[i]} />);
+      } else if (i === 0 && uniqueTags[i].name[0] !== uniqueTags[i + 1].name[0]) {
+        formattedTags.push(<li className="letters">{uniqueTags[i].name[0]}</li>);
+        formattedTags.push(<TagIndexItem key={uniqueTags[i].id} tag={uniqueTags[i]} />);
+        formattedTags.push(<li className="letters">{uniqueTags[i + 1].name[0]}</li>);
       } else if (i === 0) {
-        formattedTags.push(<li className="letters">{this.state.tags[i].name[0]}</li>);
-        formattedTags.push(<TagIndexItem key={this.state.tags[i].id} tag={this.state.tags[i]} />);
-      } else if (this.state.tags[i].name[0] !== this.state.tags[i + 1].name[0]) {
-        formattedTags.push(<TagIndexItem key={this.state.tags[i].id} tag={this.state.tags[i]} />);
-        formattedTags.push(<li className="letters">{this.state.tags[i + 1].name[0]}</li>)
+        formattedTags.push(<li className="letters">{uniqueTags[i].name[0]}</li>);
+        formattedTags.push(<TagIndexItem key={uniqueTags[i].id} tag={uniqueTags[i]} />);
+      } else if (uniqueTags[i].name[0] !== uniqueTags[i + 1].name[0]) {
+        formattedTags.push(<TagIndexItem key={uniqueTags[i].id} tag={uniqueTags[i]} />);
+        formattedTags.push(<li className="letters">{uniqueTags[i + 1].name[0]}</li>)
       } else {
-        formattedTags.push(<TagIndexItem key={this.state.tags[i].id} tag={this.state.tags[i]} />);
+        formattedTags.push(<TagIndexItem key={uniqueTags[i].id} tag={uniqueTags[i]} />);
       }
     }
 

@@ -1,13 +1,14 @@
 .tags-div {
   height: 100vh;
   overflow: auto;
+  padding-bottom: 20px;
 }
 
 .tags-control {
   width: 285px;
   border-bottom: 2px solid #ccc;
   padding-bottom: 20px;
-  margin: 20px auto;
+  margin: 20px auto 0;
 }
 
 .tags-control:after {
@@ -30,6 +31,7 @@
 
 .tags-ul {
   list-style-type: none;
+  margin: 0;
 }
 
 .tags-ul li {

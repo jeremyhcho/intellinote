@@ -2,7 +2,8 @@ var UpdateNoteForm = React.createClass({
   getInitialState: function() {
     return {
       title: "",
-      body: ""
+      body: "",
+      notebook: this.findCorrectNotebook(),
     };
   },
 
@@ -46,6 +47,10 @@ var UpdateNoteForm = React.createClass({
     this.t[0].tagging("add", tagNames);
   },
 
+  findCorrectNotebook: function () {
+    return NotebookStore.findNotebookByNote(this.props.note);
+  },
+
   handleSubmit: function () {
     var newNote = $.extend(this.props.note, {title: this.state.title, body: this.state.body});
     newNote.tags = this.t[0].tagging("getTags");
@@ -62,13 +67,19 @@ var UpdateNoteForm = React.createClass({
     this.setState({body: str});
   },
 
+  updateNoteNotebook: function (notebookId) {
+    this.setState({notebookId: notebookId});
+  },
+
   render: function() {
     return (
       <div className="update-note-div">
         <NoteToolBelt update={true}
                       handleClick={this.handleClick}
                       notebooks={this.props.notebooks}
-                      handleSubmit={this.handleSubmit} />
+                      notebook={this.state.notebook}
+                      handleSubmit={this.handleSubmit}
+                      updateNoteNotebook={this.updateNoteNotebook} />
         <input type="text"
                onChange={this.handleTitleChange}
                className="note-title"
