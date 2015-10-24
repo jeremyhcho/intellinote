@@ -10,6 +10,7 @@ var Main = React.createClass({
   componentDidMount: function() {
     NotebookStore.addChangeHandler(this._onChange);
     this.showNotebooks();
+    this.defaultPage();
   },
 
   componentWillUnmount: function () {
@@ -77,6 +78,10 @@ var Main = React.createClass({
 
   showTags: function () {
     this.setState({currentSlideOut: <Tags />});
+  },
+
+  defaultPage: function () {
+    this.setState({currentPage: <Tour />});
   },
 
   render: function() {
