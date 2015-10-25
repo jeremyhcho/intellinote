@@ -27,6 +27,7 @@ gem 'flux-rails-assets'
 gem 'bootstrap-sass'
 gem 'react-bootstrap-rails'
 gem 'seed_dump'
+gem 'newrelic_rpm'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
