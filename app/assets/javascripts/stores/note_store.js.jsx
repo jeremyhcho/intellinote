@@ -143,7 +143,7 @@
     notesUpdated: function () {
       this.emit(UPDATE_EVENT);
     }
-  });
+  }).setMaxListeners(50);
 
   AppDispatcher.register(function (action) {
     switch (action.actionType) {
