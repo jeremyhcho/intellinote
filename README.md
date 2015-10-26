@@ -1,84 +1,50 @@
-# IntelliNote
+#Intellinote
+####www.intellinote.io
 
-[heroku]: http://IntelliNote.herokuapp.com
-[wireframes]: ./docs/wireframes.md
-[schema]: ./docs/schema.md
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-five]: ./docs/phases/phase5.md
-[phase-six]: ./docs/phases/phase6.md
+Intellinote is an Evernote inspired web app. Built using React.js & Ruby on Rails, it aims to seamlessly give you the power of organization.
 
+##A True Single Page App
 
-[Heroku link][heroku]
+At the beginning of this project, I wanted to create a page that delivers content all on one static page. Content is rendered differently based on the user's login state. This is done by using a `LoginStore`.
 
-##Minimum Viable Product
+####Handling User Auth With Rails While Giving Access To State In Frontend
 
-IntelliNote is an Evernote inspired app built using Ruby on Rails & React.js.
+To create an app that redirects users without handing information down to the front end means having more than one page to deliver content. I created a `LoginStore` and an arbitrary `Logins` controller that retrieves the `current_user` so that I would be able to hold that information (non-sensitive) in the frontend.
 
-IntelliNote will allow users to:
+##Notes
 
-* Create an account
-* Log into an account
-* Create a notebook
-* Add/Remove a note
-* Add/Remove tags to a note
-* Add/Remove reminders onto notes
-* Search for notebooks, notes, and tags
-* Messaging between Users
+Using Quill.js, tagging, and shortcuts, notes can automatically make many different associations on creation. This meant having some components that never rendered notes to listen to the `NoteStore` for changes. Go Flux!
 
-##Design Documents
+##Notebooks
 
-[Wireframes][wireframes]
-[Schema][schema]
+Notebooks carry many notes, and are available to choose from in a dropdown during the note creation. A default notebook is created when a user is signed up, and a note MUST belong to a specific notebook. Deleting a notebook results in cascading deletes on all of its related notes.
 
-##Implementation Timeline
+##Search
 
-###Phase 1: Introduction Page, User Authentication, Note Model & API (1 day)
+I had three search bars throughout the website, and needed all of them to search correctly. I reused code from one search in order to achieve the correct functionality of the other two. Search happens on change of the input field.
 
-To start off, I'll be creating a welcome page that points to sign up and log in pages which validate authentication. I'll be accomplishing this feature by creating the appropriate models, controllers, and BCrypt.
+##Shortcuts
 
-I'll move on to creating a Note model under an API namespace that queries the database and responds with JSON. I'll be adding appropriate restrictions in user visibility---users not logged in shouldn't be able to visit the API namespace pages nor the main landing page.
+Shortcuts were handled by implementing a `boolean` field on the notes column. Clicking on certain buttons will toggle this boolean, making it a shortcut, or taking it off.
 
-[Details][phase-one]
+##Messages
 
-###Phase 2: React, Flux, Note CRUD (2 days)
+By implementing another Flux pattern, Users are now able to send messages to each other.
 
-This phase will focus on setting up the Flux architecture. I will set up a NoteStore, NoteActions, and a Dispatcher to index, create, update, and view notes from the browser. I will be using bootstrap to give basic styling to the React components.
+##Responses
 
-[Details][phase-two]
+Responses were a pretty neat feature to implement. When a user creates a note, deletes a note, fails to provide necessary fields, etc. They are now alerted through the `ResponseStore`. Here are the current success/error handling created:
 
-###Phase 3: Notebooks and Tags (2.5 days)
+* Creating a note
+* FAILING to create a note
+* Updating a note
+* Deleting a note
+* Creating a notebook
+* FAILING to create a notebook
+* Deleting a notebook
+* Adding a shortcut
+* Removing a shortcut
 
-In this phase, I'll be setting up appropriate models/associations and controllers for notebooks, tags, and taggings. I will be creating a NotebookStore to handle CRUD.
+##Tags
 
-To fetch the tags associated with a given Note, I'll be editing my note's show.json.jbuilder file to send the associated tags when fetched.
-
-Users will also be able to search for notes using tags using a SearchIndex component.
-
-###Phase 4: Text Editor using Quill.js (0.5 days)
-
-I'll be experimenting with the React text editor Quill.js for detailed styling of text.
-
-###Phase 5: Reminder and CSS brush up (1.5 days)
-
-In this phase, I'll add functionality to add reminders which will prompt the user with the title of the note. I'll also be heavily working on CSS during this phase.
-
-[Details][phase-five]
-
-###Phase 6: Share Notes Through Messages (2 days)
-
-I'll be creating a Message model and the respective controller to allow users to send and receive messages. I'll be creating a MessageStore that keeps track of a current user's messages using the username as a key, and an array of messages as values. Using a MessageUsersIndex, I'll create a component that lists MessageUsersIndexItem. Clicking on the MessageUsersIndexItem will show a MessagesIndex component that'll render MessagesIndexItem component for individual messages.
-
-[Details][phase-six]
-
-###Bonus
-
-#####Reveal.js
-
-* Using Reveal.js, I'll be implementing the ability to create slideshows.
-  - Add functionality to allow notes to be easily used for slideshows.
-
-####Chart.js
-
-* Using Chart.js, I'll be adding functionality to add charts and graphs to notes.
+Tags are maintained through another `TagStore`, but the trickiest part was that updating a note would mean changes to the `Tags`. I used array comparison logic to destroy the ones that needed to be deleted, and created the ones that needed to be added.
