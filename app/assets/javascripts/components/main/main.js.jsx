@@ -55,7 +55,7 @@ var Main = React.createClass({
   },
 
   search: function () {
-    this.setState({currentPage: <Search />});
+    this.setState({currentPage: <Search updateNote={this.updateNote}/>});
   },
 
   showShortcuts: function () {

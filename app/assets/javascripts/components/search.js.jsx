@@ -70,7 +70,7 @@ var Search = React.createClass({
               {
                 filteredNotes.length !== 0 ? (
                   filteredNotes.map(function (note) {
-                    return <NoteIndexItem note={note} />;
+                    return <NoteIndexItem note={note} updateNote={this.props.updateNote}/>;
                   })
                 ) : (
                   <li></li>
